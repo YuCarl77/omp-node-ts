@@ -1,5 +1,4 @@
 import { DIALOG_STYLE, SampPlayer } from "samp-node-lib";
-import Color from "@/enums/color";
 
 interface DialogImpl {
   style: DIALOG_STYLE;
@@ -23,7 +22,8 @@ type DialogResponse = Promise<{
 */
 
 class Dialog {
-  private static id: number = -1;
+  private id: number;
+  private static CREATED_ID: number = -1;
   private static MAX_DIALOGID: number = 32767;
   private dialog: DialogImpl;
 
@@ -36,8 +36,13 @@ class Dialog {
       button2: "",
     }
   ) {
+    if (Dialog.CREATED_ID < Dialog.MAX_DIALOGID) {
+      Dialog.CREATED_ID++;
+    } else {
+      console.log("[Dialog]: The maximum number of dialogs is reached.");
+    }
     this.dialog = dialog;
-    if (Dialog.id < Dialog.MAX_DIALOGID) Dialog.id++;
+    this.id = Dialog.CREATED_ID;
   }
 
   // #region
@@ -78,15 +83,8 @@ class Dialog {
   //#endregion
 
   public open(player: SampPlayer): DialogResponse {
-    if (Dialog.id === Dialog.MAX_DIALOGID) {
-      player.SendClientMessage(
-        Color.yellow,
-        "The maximum number of dialogs is reached."
-      );
-      return null;
-    }
     const { style, caption, info, button1, button2 } = this.dialog;
-    return player.ShowDialog(Dialog.id, style, caption, info, button1, button2);
+    return player.ShowDialog(this.id, style, caption, info, button1, button2);
   }
 
   public static close(player: SampPlayer) {
