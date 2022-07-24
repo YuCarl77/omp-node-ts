@@ -4,7 +4,7 @@ A very simple [omp server](https://github.com/openmultiplayer/server-beta) that 
 
 ## Usage
 
-> **The necessary files were removed** to ensure that the latest version and repository filesize are always used.
+> **The necessary files were removed** to ensure that the latest version is always used and that the repository file size is reduced.
 
 1. download [omp server](https://github.com/openmultiplayer/server-beta/releases) and extract it to the root directory, i.e. `omp-server.exe` and `components` folder
 
