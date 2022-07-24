@@ -10,10 +10,7 @@ import CmdBus from "@/utils/CmdBus";
 
 import Color from "@/enums/color";
 
-// For the time being, I haven't thought of any way to load all commands automatically.
-import "@/commands/help";
-import "@/commands/login";
-import "@/commands/race";
+import "@/commands";
 
 class GameMode {
   private static instance: GameMode;
