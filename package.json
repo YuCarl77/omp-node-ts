@@ -6,7 +6,7 @@
     "serve": "omp-server.exe",
     "dev": "npm run clean && npm-run-all -p -r -l dev:watch dev:server",
     "dev:watch": "cross-env NODE_ENV=dev rollup -c -w",
-    "dev:server": "nodemon -x omp-server.exe -w dist/bundle.js -d 3",
+    "dev:server": "nodemon -x omp-server.exe -w dist/bundle.js -d 2",
     "build": "npm run clean && cross-env NODE_ENV=prod rollup -c",
     "clean": "rimraf dist",
     "lint": "eslint src/* --fix -c .eslintrc"

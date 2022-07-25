@@ -16,10 +16,14 @@ class CmdBus {
 
   static on(eventName: EventName, eventFunction: EventFunc) {
     const idx: number = CmdBus.findEventIdxByName(eventName);
-    if (idx > -1)
-      return console.log(
-        "It is not supported to listen for the same event more than once"
+    if (idx > -1) {
+      const other = CmdBus.eventList[idx].name;
+      console.log(
+        `[command]: It is not supported to listen for the same event name [${eventName}] [${other}] more than once`
       );
+      return;
+    }
+    console.log(`[command]: add event [${eventName}] success`);
     CmdBus.eventList.push({ name: eventName, fn: eventFunction });
   }
 
@@ -44,10 +48,17 @@ class CmdBus {
 
   private static findEventIdxByName(eventName: EventName): number {
     return CmdBus.eventList.findIndex((v) => {
-      if (typeof v.name === "string") {
-        return v.name === eventName;
+      const { name: registered } = v;
+      if (registered instanceof Array) {
+        if (eventName instanceof Array) {
+          return registered.some((e) => eventName.includes(e));
+        }
+        return registered.includes(eventName);
       }
-      return v.name.some((e) => e === eventName);
+      if (typeof registered === "string" && eventName instanceof Array) {
+        return eventName.includes(registered);
+      }
+      return registered === eventName;
     });
   }
 }
