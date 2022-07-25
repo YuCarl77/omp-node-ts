@@ -58,10 +58,10 @@ const $t = function (
   key: string,
   replaceable?: any[],
   lang?: Language
-): number[] | undefined {
-  const { value, charset } = locales[lang ? lang : Language.Chinese];
+): string {
+  const { value } = locales[lang ? lang : Language.Chinese];
   let text = dotValue(value, key);
-  if (text === undefined) return undefined;
+  if (text === undefined) return "undefined";
   if (replaceable && replaceable.length) {
     // %s 占位替换
     const placeholder = /%s/i;
@@ -71,7 +71,7 @@ const $t = function (
       text = text.replace(placeholder, replaceable[i]);
     }
   }
-  return encodeToBuf(text, charset);
+  return text;
 };
 
-export { $t, encodeToBuf, decodeFromBuf };
+export { $t, encodeToBuf, decodeFromBuf, locales };

@@ -1,8 +1,8 @@
-import { SampPlayer } from "samp-node-lib";
+import { Player } from "@/controllers/player";
 import { $t } from "./i18n";
 
 type EventName = string | string[];
-type EventFunc = (this: SampPlayer, ...args: string[]) => any;
+type EventFunc = (this: Player, ...args: string[]) => any;
 
 interface CmdImpl {
   name: EventName;
@@ -28,7 +28,7 @@ class CmdBus {
   }
 
   static emit(
-    player: SampPlayer,
+    player: Player,
     userEventName: EventName,
     userEventArgs: Array<string>
   ): boolean {

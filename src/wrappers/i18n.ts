@@ -1,19 +1,18 @@
-import { rgba, SampPlayer } from "samp-node-lib";
-
-import { encodeToBuf } from "../utils/i18n";
+import { rgba } from "samp-node-lib";
+import { encodeToBuf, locales } from "../utils/i18n";
+import type { Player } from "@/controllers/player";
 
 const SendClientMessage = (
-  player: SampPlayer,
+  player: Player,
   msg: string,
-  color: string,
-  charset: string
+  color: string
 ): number => {
   return samp.callNative(
     "SendClientMessage",
     "iia",
-    player.playerid,
+    player.id,
     rgba(color),
-    encodeToBuf(msg, charset)
+    encodeToBuf(msg, locales[player.settings.locale].charset)
   );
 };
 
