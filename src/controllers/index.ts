@@ -11,6 +11,7 @@ import CmdBus from "@/utils/CmdBus";
 import Color from "@/enums/color";
 
 import "@/commands";
+import $t from "@/utils/i18n";
 
 class GameMode {
   private static instance: GameMode;
@@ -23,7 +24,7 @@ class GameMode {
 
   public init(func: () => void): void {
     if (this.initialized) {
-      throw new Error("cannot be initialized more than once");
+      throw new Error($t("error.initTwice"));
     }
     this.initialized = true;
 
@@ -38,19 +39,15 @@ class GameMode {
     });
 
     OnPlayerCommandText((player, cmdtext): number => {
-      // Use eventBus to observe and subscribe to level 1 instructions, support string and array pass, array used for alias.
-
-      // Pass the split instruction through call array deconstruction or apply
-
-      // The first step is to extract the cmdtext with the re into an array, such as /car 411
-
-      // There may be many Spaces in the middle, but remove them all
+      /* 
+        Use eventBus to observe and subscribe to level 1 instructions, support string and array pass, array used for alias.
+        Pass the split instruction through call array deconstruction or apply
+        The first step is to extract the cmdtext with the re into an array, such as /car 411
+        There may be many Spaces in the middle, but remove them all
+      */
       const regCmdtext = cmdtext.match(/[^/\s]+/gi);
       if (regCmdtext === null || regCmdtext.length === 0) {
-        player.SendClientMessage(
-          Color.yellow,
-          "please enter the correct instruction."
-        );
+        player.SendClientMessage(Color.yellow, $t("error.commandFormat"));
         return 1;
       }
       const exist: boolean = CmdBus.emit(
@@ -61,7 +58,7 @@ class GameMode {
       if (!exist) {
         player.SendClientMessage(
           Color.white,
-          `The instruction ${cmdtext} you entered does not exist.`
+          $t("error.commandUndefined", [cmdtext])
         );
       }
       return 1;
@@ -70,13 +67,10 @@ class GameMode {
     OnPlayerConnect((player) => {
       // There should be a better way to get names than passing in length as in the past
       const name: string = player.GetPlayerName(24);
-      SendClientMessageToAll(
-        Color.blue,
-        `Welcome player ${name} to connect to the server`
-      );
+      SendClientMessageToAll(Color.blue, $t("server.welcome", [name]));
       player.SendClientMessage(
         Color.white,
-        `${name}, Your id is ${player.playerid}`
+        $t("server.greet", [name, player.playerid])
       );
     });
   }

@@ -1,4 +1,5 @@
 import { SampPlayer } from "samp-node-lib";
+import $t from "./i18n";
 
 type EventName = string | string[];
 type EventFunc = (this: SampPlayer, ...args: string[]) => any;
@@ -16,10 +17,7 @@ class CmdBus {
 
   static on(eventName: EventName, eventFunction: EventFunc) {
     const idx: number = CmdBus.findEventIdxByName(eventName);
-    if (idx > -1)
-      return console.log(
-        "It is not supported to listen for the same event more than once"
-      );
+    if (idx > -1) return console.log($t("error.commandTwice"));
     CmdBus.eventList.push({ name: eventName, fn: eventFunction });
   }
 
@@ -47,7 +45,10 @@ class CmdBus {
       if (typeof v.name === "string") {
         return v.name === eventName;
       }
-      return v.name.some((e) => e === eventName);
+      return v.name.some((e) => {
+        console.log(eventName, e, e === eventName);
+        return e === eventName;
+      });
     });
   }
 }
