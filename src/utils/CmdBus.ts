@@ -1,4 +1,4 @@
-import Player from "@/controllers/player";
+import Player from "@/models/player";
 import { $t } from "./i18n";
 
 type EventName = string | string[];

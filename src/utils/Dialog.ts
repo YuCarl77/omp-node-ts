@@ -1,4 +1,4 @@
-import Player from "@/controllers/player";
+import Player from "@/models/player";
 import { DIALOG_STYLE } from "samp-node-lib";
 import { $t } from "./i18n";
 

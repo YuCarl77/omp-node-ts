@@ -1,6 +1,6 @@
 import CmdBus from "@/utils/CmdBus";
 import ColorEnum from "@/enums/color";
-import Player from "./player";
+import Player from "@/models/player";
 import { SendClientMessage } from "@/wrappers/i18n";
 import { OnPlayerCommandText, SampPlayer } from "samp-node-lib";
 import { $t } from "@/utils/i18n";

@@ -1,6 +1,6 @@
 import { rgba } from "samp-node-lib";
 import { encodeToBuf, locales } from "../utils/i18n";
-import Player from "@/controllers/player";
+import Player from "@/models/player";
 
 const processMsg = (msg: string, charset: string) => {
   const res: string | number[] = ["utf8", "utf-8"].includes(charset)
