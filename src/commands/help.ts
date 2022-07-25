@@ -11,7 +11,8 @@ const helpDialog = new Dialog({
   button2: "",
 });
 
-CmdBus.on("help", function () {
+CmdBus.on("help", async function () {
   // show help dialog
-  helpDialog.open(this);
+  const res = await helpDialog.open(this);
+  console.log(res);
 });
