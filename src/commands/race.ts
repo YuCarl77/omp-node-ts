@@ -7,9 +7,13 @@ import { SendClientMessage } from "@/wrappers/i18n";
 for example, to block access only after login or only for administrators. */
 CmdBus.on(["race"], function (...args) {
   // subcommand command
-  // means like /r s or /race s
-  const [subcommand, ...others] = args;
+  // means like /race s
+  const [subcommand, ...next] = args;
   if (subcommand === "s") {
-    SendClientMessage(this, ColorEnum.white, $t("tips.cmd.next", others));
+    SendClientMessage(
+      this,
+      ColorEnum.white,
+      $t("tips.cmd.next", [next.toString()])
+    );
   }
 });

@@ -1,11 +1,10 @@
-import { GameModeExit } from "samp-node-lib";
+import { GameModeExit, OnGameModeExit, OnGameModeInit } from "samp-node-lib";
 import { $t } from "@/utils/i18n";
 
 // register all commands
 import "@/commands";
 // register all events without gamemode
 import "./events";
-import registerGameMode from "./gamemode";
 
 class GameMode {
   private static instance: GameMode;
@@ -21,7 +20,15 @@ class GameMode {
       throw new Error($t("error.initTwice"));
     }
     this.initialized = true;
-    registerGameMode(func);
+    OnGameModeInit((): void => {
+      // do something during initialization, such as load some objects
+      // final callback to main.ts
+      func();
+    });
+
+    OnGameModeExit((): void => {
+      // do something during close/restart server, such as storage of player data
+    });
   }
 
   public exit(func: () => void): void {

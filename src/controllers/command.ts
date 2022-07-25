@@ -1,6 +1,6 @@
 import CmdBus from "@/utils/CmdBus";
 import ColorEnum from "@/enums/color";
-import { Players } from "./player";
+import Player from "./player";
 import { SendClientMessage } from "@/wrappers/i18n";
 import { OnPlayerCommandText, SampPlayer } from "samp-node-lib";
 import { $t } from "@/utils/i18n";
@@ -14,7 +14,7 @@ import { $t } from "@/utils/i18n";
     There may be many Spaces in the middle, but remove them all
   */
 OnPlayerCommandText((player: SampPlayer, cmdtext: string): number | void => {
-  const p = Players.get(player);
+  const p = Player.Players.get(player);
   if (!p) return;
   const regCmdtext = cmdtext.match(/[^/\s]+/gi);
   if (regCmdtext === null || regCmdtext.length === 0) {

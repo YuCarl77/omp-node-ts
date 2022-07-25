@@ -10,9 +10,17 @@
     }
   },
   "error": {
+    "dialogLimited": "[对话框]: 已达到数量上限",
     "commandTwice": "不支持多次监听同一事件",
     "commandFormat": "请输入正确的指令",
     "commandUndefined": "您输入的指令 %s 不存在",
     "initTwice": "不能多次初始化"
+  },
+  "dialog": {
+    "help": {
+      "caption": "帮助",
+      "info": "你可以使用以下命令：xxx",
+      "button1": "关闭"
+    }
   }
 }

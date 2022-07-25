@@ -1,5 +1,6 @@
-import { Player } from "@/controllers/player";
+import Player from "@/controllers/player";
 import { DIALOG_STYLE } from "samp-node-lib";
+import { $t } from "./i18n";
 
 interface DialogImpl {
   style: DIALOG_STYLE;
@@ -40,7 +41,7 @@ class Dialog {
     if (Dialog.CREATED_ID < Dialog.MAX_DIALOGID) {
       Dialog.CREATED_ID++;
     } else {
-      console.log("[Dialog]: The maximum number of dialogs is reached.");
+      console.log($t("error.dialogLimited"));
     }
     this.dialog = dialog;
     this.id = Dialog.CREATED_ID;

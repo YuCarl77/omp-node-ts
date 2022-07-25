@@ -10,9 +10,17 @@
     }
   },
   "error": {
+    "dialogLimited": "[Dialog]: The maximum number of dialogs is reached",
     "commandTwice": "It is not supported to listen for the same event more than once",
     "commandFormat": "Please enter the correct command",
     "commandUndefined": "The command %s you entered does not exist",
     "initTwice": "Cannot be initialized more than once"
+  },
+  "dialog": {
+    "help": {
+      "caption": "Help",
+      "info": "You can use the following commands: foo",
+      "button1": "Close"
+    }
   }
 }

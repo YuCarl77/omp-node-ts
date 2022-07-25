@@ -45,7 +45,6 @@ const isValidate = (charset: string): void => {
 // https://github.com/AmyrAhmady/samp-node/issues/2
 const encodeToBuf = (content: string, charset: string): number[] => {
   isValidate(charset);
-  console.log(content, charset);
   return [...encode(content, charset), 0];
 };
 

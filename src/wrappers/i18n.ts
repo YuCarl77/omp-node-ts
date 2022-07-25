@@ -1,6 +1,6 @@
 import { rgba } from "samp-node-lib";
 import { encodeToBuf, locales } from "../utils/i18n";
-import { Player, Players } from "@/controllers/player";
+import Player from "@/controllers/player";
 
 const processMsg = (msg: string, charset: string) => {
   const res: string | number[] = ["utf8", "utf-8"].includes(charset)
@@ -27,7 +27,7 @@ const SendClientMessage = (
 };
 
 const SendClientMessageToAll = (color: string, msg: string): number => {
-  Players.forEach((player) => SendClientMessage(player, color, msg));
+  Player.Players.forEach((player) => SendClientMessage(player, color, msg));
   return 1;
 };
 
