@@ -25,6 +25,8 @@ For the `native added by OMP`, the principle should be wrapped in the same way a
 
 If you look at the `samp-node-lib` code, you will see that the underlying calls are to `native caller / public caller`.
 
+You can try to deploy in a `docker` container.
+
 ## Notice
 
 - `samp-node` requires compliance with the `cjs` specification and has been converted from `esm` to `cjs` via `rollup`.

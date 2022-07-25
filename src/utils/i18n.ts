@@ -1,5 +1,5 @@
 import { encode, decode, encodingExists } from "iconv-lite";
-import Language from "@/enums/language";
+import LanguageEnum from "@/enums/language";
 
 import zh_cn from "./locales/zh-cn.json";
 import en from "./locales/en.json";
@@ -10,11 +10,11 @@ import en from "./locales/en.json";
 // 也有情况是中文但采用gbk的，比如控制台/重置版,还要考虑一下
 
 const locales = {
-  [Language.Chinese]: {
+  [LanguageEnum.Chinese]: {
     charset: "gbk",
     value: zh_cn,
   },
-  [Language.English]: {
+  [LanguageEnum.English]: {
     charset: "utf8",
     value: en,
   },
@@ -45,6 +45,7 @@ const isValidate = (charset: string): void => {
 // https://github.com/AmyrAhmady/samp-node/issues/2
 const encodeToBuf = (content: string, charset: string): number[] => {
   isValidate(charset);
+  console.log(content, charset);
   return [...encode(content, charset), 0];
 };
 
@@ -57,9 +58,9 @@ const decodeFromBuf = (buf: Buffer, charset: string): string => {
 const $t = function (
   key: string,
   replaceable?: any[],
-  lang?: Language
+  lang?: LanguageEnum
 ): string {
-  const { value } = locales[lang ? lang : Language.Chinese];
+  const { value } = locales[lang ? lang : LanguageEnum.Chinese];
   let text = dotValue(value, key);
   if (text === undefined) return "undefined";
   if (replaceable && replaceable.length) {

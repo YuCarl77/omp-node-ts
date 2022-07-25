@@ -1,19 +1,34 @@
 import { rgba } from "samp-node-lib";
 import { encodeToBuf, locales } from "../utils/i18n";
-import type { Player } from "@/controllers/player";
+import { Player, Players } from "@/controllers/player";
+
+const processMsg = (msg: string, charset: string) => {
+  const res: string | number[] = ["utf8", "utf-8"].includes(charset)
+    ? msg
+    : encodeToBuf(msg, charset);
+  const flag = res instanceof Array ? "a" : "s";
+  return [flag, res];
+};
 
 const SendClientMessage = (
   player: Player,
-  msg: string,
-  color: string
+  color: string,
+  msg: string
 ): number => {
+  const { charset } = locales[player.settings.locale];
+  const res = processMsg(msg, charset);
   return samp.callNative(
     "SendClientMessage",
-    "iia",
+    `ii${res[0]}`,
     player.id,
     rgba(color),
-    encodeToBuf(msg, locales[player.settings.locale].charset)
+    res[1]
   );
 };
 
-export { SendClientMessage };
+const SendClientMessageToAll = (color: string, msg: string): number => {
+  Players.forEach((player) => SendClientMessage(player, color, msg));
+  return 1;
+};
+
+export { SendClientMessage, SendClientMessageToAll };

@@ -1,4 +1,5 @@
-import { DIALOG_STYLE, SampPlayer } from "samp-node-lib";
+import { Player } from "@/controllers/player";
+import { DIALOG_STYLE } from "samp-node-lib";
 
 interface DialogImpl {
   style: DIALOG_STYLE;
@@ -82,12 +83,12 @@ class Dialog {
   }
   //#endregion
 
-  public open(player: SampPlayer): DialogResponse {
+  public open(player: Player): DialogResponse {
     const { style, caption, info, button1, button2 } = this.dialog;
     return player.ShowDialog(this.id, style, caption, info, button1, button2);
   }
 
-  public static close(player: SampPlayer) {
+  public static close(player: Player) {
     player.ShowDialog(-1, DIALOG_STYLE.MSGBOX, " ", " ", " ", "");
   }
 }

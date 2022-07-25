@@ -1,17 +1,11 @@
-import {
-  OnGameModeInit,
-  OnGameModeExit,
-  OnPlayerCommandText,
-} from "samp-node-lib";
-
-import CmdBus from "@/utils/CmdBus";
-
-import Color from "@/enums/color";
-
-import "@/commands";
+import { GameModeExit } from "samp-node-lib";
 import { $t } from "@/utils/i18n";
-import { Players } from "./player";
-import { SendClientMessage } from "@/wrappers/i18n";
+
+// register all commands
+import "@/commands";
+// register all events without gamemode
+import "./events";
+import registerGameMode from "./gamemode";
 
 class GameMode {
   private static instance: GameMode;
@@ -27,45 +21,14 @@ class GameMode {
       throw new Error($t("error.initTwice"));
     }
     this.initialized = true;
+    registerGameMode(func);
+  }
 
-    OnGameModeInit(() => {
-      // delay to next event loop
-      setTimeout(() => func());
-    });
-
-    OnGameModeExit(() => {
-      if (!this.initialized) return;
-      this.initialized = false;
-    });
-
-    OnPlayerCommandText((player, cmdtext): number | void => {
-      /* 
-        Use eventBus to observe and subscribe to level 1 instructions, support string and array pass, array used for alias.
-        Pass the split instruction through call array deconstruction or apply
-        The first step is to extract the cmdtext with the re into an array, such as /car 411
-        There may be many Spaces in the middle, but remove them all
-      */
-      const p = Players.get(player);
-      if (!p) return;
-      const regCmdtext = cmdtext.match(/[^/\s]+/gi);
-      if (regCmdtext === null || regCmdtext.length === 0) {
-        SendClientMessage(p, Color.yellow, $t("error.commandFormat"));
-        return 1;
-      }
-      const exist: boolean = CmdBus.emit(
-        p,
-        regCmdtext[0],
-        regCmdtext.splice(1)
-      );
-      if (!exist) {
-        SendClientMessage(
-          p,
-          Color.white,
-          $t("error.commandUndefined", [cmdtext])
-        );
-      }
-      return 1;
-    });
+  public exit(func: () => void): void {
+    if (!this.initialized) return;
+    this.initialized = false;
+    GameModeExit();
+    func();
   }
 }
 

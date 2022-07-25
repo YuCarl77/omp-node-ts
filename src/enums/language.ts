@@ -1,5 +1,5 @@
-enum Language {
+enum LanguageEnum {
   Chinese,
   English,
 }
-export default Language;
+export default LanguageEnum;

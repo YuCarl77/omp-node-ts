@@ -42,13 +42,17 @@ class CmdBus {
 
   private static findEventIdxByName(eventName: EventName): number {
     return CmdBus.eventList.findIndex((v) => {
-      if (typeof v.name === "string") {
-        return v.name === eventName;
+      const { name: registered } = v;
+      if (registered instanceof Array) {
+        if (eventName instanceof Array) {
+          return registered.some((e) => eventName.includes(e));
+        }
+        return registered.includes(eventName);
       }
-      return v.name.some((e) => {
-        console.log(eventName, e, e === eventName);
-        return e === eventName;
-      });
+      if (typeof registered === "string" && eventName instanceof Array) {
+        return eventName.includes(registered);
+      }
+      return registered === eventName;
     });
   }
 }

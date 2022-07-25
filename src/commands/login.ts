@@ -1,12 +1,12 @@
 import CmdBus from "@/utils/CmdBus";
-import Color from "@/enums/color";
+import ColorEnum from "@/enums/color";
 import { SendClientMessage } from "@/wrappers/i18n";
 
 // 这里也有问题，同时注册上了两个事件 一个是赛车的一个是注册的
 CmdBus.on(["r", "reg", "register"], function (...args) {
-  SendClientMessage(this, Color.white, `this is a reg example ${args}`);
+  SendClientMessage(this, ColorEnum.white, `this is a reg example ${args}`);
 });
 
 CmdBus.on(["l", "login"], function (...args) {
-  SendClientMessage(this, Color.white, `this is a login example ${args}`);
+  SendClientMessage(this, ColorEnum.white, `this is a login example ${args}`);
 });
