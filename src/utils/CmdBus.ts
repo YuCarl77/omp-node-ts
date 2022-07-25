@@ -1,5 +1,5 @@
 import { SampPlayer } from "samp-node-lib";
-import $t from "./i18n";
+import { $t } from "./i18n";
 
 type EventName = string | string[];
 type EventFunc = (this: SampPlayer, ...args: string[]) => any;

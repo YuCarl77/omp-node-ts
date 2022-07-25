@@ -11,7 +11,7 @@ import CmdBus from "@/utils/CmdBus";
 import Color from "@/enums/color";
 
 import "@/commands";
-import $t from "@/utils/i18n";
+import { $t } from "@/utils/i18n";
 
 class GameMode {
   private static instance: GameMode;

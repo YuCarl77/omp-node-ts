@@ -1,5 +1,5 @@
-import Language from "@/enums/language";
 import { encode, decode, encodingExists } from "iconv-lite";
+import Language from "@/enums/language";
 
 import zh_cn from "./locales/zh-cn.json";
 import en from "./locales/en.json";
@@ -20,45 +20,58 @@ const locales = {
   },
 };
 
-// 用于字符串找对象的属性对应值
 // "server.welcome" => zh_cn["server"]["welcome"];
-const dotValue = (initObj: Object, property: string) => {
+const dotValue = (whichLangJson: any, property: string): string => {
   const keyArr: string[] = property.split(".");
-  return keyArr.reduce((obj, key) => {
-    return obj.hasOwnProperty(key) ? obj[key] : undefined;
-  }, initObj) as string | undefined;
+  return keyArr.reduce((obj: any, key: string) => {
+    if (!obj.hasOwnProperty(key))
+      throw new Error(`[i18n]: cannot find ${property}`);
+    return obj[key];
+  }, whichLangJson) as string;
 };
 
-// 转换字符编码
-// 当前的问题是，可能存在相同的字符集，而不需要转换但仍在转换。
-// if (["utf-8", "utf8"].includes(language)) return text;
-const encodeLang = (text: string, charset: string): string => {
-  if (!encodingExists(charset))
-    throw new Error(`[i18n]: unsupported encoding type ${charset}`);
-  return encode(text, charset);
-  // const buf = encode(text, charset);
-  // return decode(buf, "utf-8");
+// determine if the incoming character encoding type is valid
+const isValidate = (charset: string): void => {
+  if (encodingExists(charset)) {
+    if (["utf-8", "utf8"].includes(charset))
+      throw new Error(`[i18n]: no conversion required ${charset}`);
+    return;
+  }
+  throw new Error(`[i18n]: unknown charset ${charset}`);
 };
 
-// 国际化函数
+// convert utf8 strings to different encoded byte stream arrays
+// used to solve the internationalization language display display messy problem
+// https://github.com/AmyrAhmady/samp-node/issues/2
+const encodeToBuf = (content: string, charset: string): number[] => {
+  isValidate(charset);
+  return [...encode(content, charset), 0];
+};
+
+// convert byte stream arrays of different encodings to utf8 strings
+const decodeFromBuf = (buf: Buffer, charset: string): string => {
+  isValidate(charset);
+  return decode(buf, charset);
+};
+
 const $t = function (
   key: string,
   replaceable?: any[],
   lang?: Language
-): string {
+): number[] | undefined {
   const { value, charset } = locales[lang ? lang : Language.Chinese];
   let text = dotValue(value, key);
-  if (text === undefined) return "undefined";
-  text = encodeLang(text, charset);
-  if (replaceable === undefined || replaceable.length === 0) return text;
-  // %s 占位替换
-  const placeholder = /%s/i;
-  for (let i = 0; i < replaceable.length; i++) {
-    const matches = text.match(placeholder);
-    if (matches === null) break;
-    text = text.replace(placeholder, encodeLang(replaceable[i], charset));
+  if (text === undefined) return undefined;
+  if (replaceable && replaceable.length) {
+    // %s 占位替换
+    const placeholder = /%s/i;
+    for (let i = 0; i < replaceable.length; i++) {
+      const matches = text.match(placeholder);
+      if (matches === null) break;
+      text = text.replace(placeholder, replaceable[i]);
+    }
   }
-  return text;
+  return encodeToBuf(text, charset);
 };
 
-export default $t;
+export { $t, encodeToBuf, decodeFromBuf };
