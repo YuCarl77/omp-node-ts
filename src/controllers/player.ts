@@ -18,3 +18,12 @@ OnPlayerConnect((connector: SampPlayer) => {
 OnPlayerDisconnect((player: SampPlayer) => {
   if (Player.Players.has(player)) Player.Players.delete(player);
 });
+
+// see https://github.com/AmyrAhmady/samp-node/wiki/Events#sampnode_callevent.
+// in short, when you write the flag a, you must add I after it, but this I will actually be ignored.
+samp.registerEvent("OnPlayerTextI18n", "iai");
+samp.on("OnPlayerTextI18n", (player: number, buffer: number[]) => {
+  // get the player input text
+  // and you can decode with the player's charset;
+  console.log(player, buffer);
+});

@@ -68,7 +68,7 @@
   "password": "",
   "pawn": {
     "legacy_plugins": ["samp-node"],
-    "main_scripts": ["empty 1"],
+    "main_scripts": ["polyfill 1"],
     "side_scripts": []
   },
   "port": 7777,
