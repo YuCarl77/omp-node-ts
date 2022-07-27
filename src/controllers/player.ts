@@ -25,5 +25,8 @@ OnPlayerDisconnect((player: SampPlayer): void => {
 });
 
 OnPlayerText((player: Player, text: string): void => {
-  console.log(player, text);
+  SendClientMessageToAll(
+    ColorEnum.white,
+    `${player.name}(${player.id}): ${text}`
+  );
 });
