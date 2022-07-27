@@ -57,12 +57,6 @@ export const ShowPlayerDialog = (
   );
 };
 
-// export const OnPlayerText = (playerid: number, buffer: number[]): void => {
-//   // get the player input text
-//   // and you can decode with the player's charset;
-//   console.log(playerid, buffer);
-// };
-
 // see https://github.com/AmyrAhmady/samp-node/wiki/Events#sampnode_callevent.
 // in short, when you write the flag a, you must add I after it, but this I will actually be ignored.
 
@@ -72,7 +66,17 @@ export const OnPlayerText = (fn: (player: Player, text: string) => void) => {
   // and you can decode with the player's charset;
   samp.on("OnPlayerTextI18n", (playerid: number, buf: number[]): void => {
     const p = Player.Players.get(playerid);
-    if (!p) return;
-    fn(p, decodeFromBuf(buf, p.charset));
+    if (p) fn(p, decodeFromBuf(buf, p.charset));
+  });
+};
+
+samp.registerEvent("OnPlayerCommandTextI18n", "iai");
+export const OnPlayerCommandText = (
+  fn: (player: Player, cmdtext: string) => void
+) => {
+  samp.on("OnPlayerCommandTextI18n", (playerid: number, buf: number[]) => {
+    const p = Player.Players.get(playerid);
+    if (p) fn(p, decodeFromBuf(buf, p.charset));
+    return 1;
   });
 };
