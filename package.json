@@ -1,12 +1,12 @@
 {
   "name": "omp-server",
   "version": "1.0.0",
-  "description": "A very simple omp server that uses the samp-node plugin and the samp-node-lib library.",
+  "description": "A very simple omp server boilerplate that uses the samp-node plugin and the samp-node-lib library.",
   "scripts": {
-    "serve": "omp-server.exe",
+    "serve": "omp-server",
     "dev": "npm run clean && npm-run-all -p -r -l dev:watch dev:server",
     "dev:watch": "cross-env NODE_ENV=dev rollup -c -w",
-    "dev:server": "nodemon -x omp-server.exe -w dist/bundle.js -d 2",
+    "dev:server": "nodemon -x omp-server -w dist/bundle.js -d 2",
     "build": "npm run clean && cross-env NODE_ENV=prod rollup -c",
     "clean": "rimraf dist",
     "lint": "eslint src/* --fix -c .eslintrc"
