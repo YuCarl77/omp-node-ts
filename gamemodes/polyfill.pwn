@@ -23,42 +23,48 @@ stock getByteLength(text[]) {
 forward OnClientMessage(color, text[]);
 public OnClientMessage(color, text[])
 {
-	return SAMPNode_CallEvent("OnClientMessageI18n", color, text, getByteLength(text));
+	SAMPNode_CallEvent("OnClientMessageI18n", color, text, getByteLength(text));
 }
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
-	return SAMPNode_CallEvent("OnDialogResponseI18n", playerid, dialogid, response, listitem, inputtext, getByteLength(inputtext));
+	SAMPNode_CallEvent("OnDialogResponseI18n", playerid, dialogid, response, listitem, inputtext, getByteLength(inputtext));
+	return 1;
 }
 
 public OnIncomingConnection(playerid, ip_address[], port)
 {
-    return SAMPNode_CallEvent("OnIncomingConnectionI18n", playerid, ip_address, getByteLength(ip_address), port);
+    SAMPNode_CallEvent("OnIncomingConnectionI18n", playerid, ip_address, getByteLength(ip_address), port);
+    return 1;
 }
 
 forward OnNPCDisconnect(reason[]);
 public OnNPCDisconnect(reason[])
 {
-    return SAMPNode_CallEvent("OnNPCDisconnectI18n", reason, getByteLength(reason));
+	SAMPNode_CallEvent("OnNPCDisconnectI18n", reason, getByteLength(reason));
 }
 
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    return SAMPNode_CallEvent("OnPlayerCommandTextI18n", playerid, cmdtext, getByteLength(cmdtext));
+	SAMPNode_CallEvent("OnPlayerCommandTextI18n", playerid, cmdtext, getByteLength(cmdtext));
+	return 1;
 }
 
 public OnPlayerText(playerid, text[])
 {
-    return SAMPNode_CallEvent("OnPlayerTextI18n", playerid, text, getByteLength(text));
+	SAMPNode_CallEvent("OnPlayerTextI18n", playerid, text, getByteLength(text));
+	return 0;
 }
 
 public OnRconCommand(cmd[])
 {
-	return SAMPNode_CallEvent("OnRconCommandI18n", cmd, getByteLength(cmd));
+	SAMPNode_CallEvent("OnRconCommandI18n", cmd, getByteLength(cmd));
+	return 1;
 }
 
 public OnRconLoginAttempt(ip[], password[], success)
 {
-    return SAMPNode_CallEvent("OnRconLoginAttemptI18n", ip, getByteLength(ip), password, getByteLength(password), success);
+	SAMPNode_CallEvent("OnRconLoginAttemptI18n", ip, getByteLength(ip), password, getByteLength(password), success);
+	return 1;
 }
 
