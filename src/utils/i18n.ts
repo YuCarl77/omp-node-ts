@@ -28,12 +28,8 @@ const dotValue = (whichLangJson: any, property: string): string => {
 
 // determine if the incoming character encoding type is valid
 const isValidate = (charset: string): void => {
-  if (encodingExists(charset)) {
-    if (["utf-8", "utf8"].includes(charset))
-      throw new Error(`[i18n]: no conversion required ${charset}`);
-    return;
-  }
-  throw new Error(`[i18n]: unknown charset ${charset}`);
+  if (!encodingExists(charset))
+    throw new Error(`[i18n]: unknown charset ${charset}`);
 };
 
 // convert utf8 strings to different encoded byte stream arrays
