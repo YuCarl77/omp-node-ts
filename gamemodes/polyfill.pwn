@@ -32,12 +32,6 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	return 1;
 }
 
-public OnIncomingConnection(playerid, ip_address[], port)
-{
-    SAMPNode_CallEvent("OnIncomingConnectionI18n", playerid, ip_address, getByteLength(ip_address), port);
-    return 1;
-}
-
 forward OnNPCDisconnect(reason[]);
 public OnNPCDisconnect(reason[])
 {

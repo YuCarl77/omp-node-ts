@@ -1,7 +1,8 @@
 import { rgba } from "samp-node-lib";
-import { decodeFromBuf, encodeToBuf } from "../utils/i18n";
+import { decodeFromBuf, encodeToBuf, locales } from "@/utils/i18n";
 import Player from "@/models/player";
 import type { DialogImpl } from "@/utils/Dialog";
+import config from "@/config";
 
 type processTuple = [string, string | number[]];
 
@@ -104,4 +105,38 @@ export const OnDialogResponse = (
       fn(p, response, listitem, decodeFromBuf(inputbuf, p.charset));
     }
   );
+};
+
+samp.registerEvent("OnClientMessageI18n", "iai");
+export const OnClientMessage = (fn: (color: number, text: string) => void) => {
+  samp.on("OnClientMessageI18n", (color: number, buf: number[]): void => {
+    fn(color, decodeFromBuf(buf, locales[config.language].charset));
+  });
+};
+
+samp.registerEvent("OnRconCommandI18n", "ai");
+export const OnRconCommand = (fn: (cmd: string) => void) => {
+  samp.on("OnRconCommandI18n", (buf: number[]): void => {
+    fn(decodeFromBuf(buf, locales[config.language].charset));
+  });
+};
+
+samp.registerEvent("OnRconLoginAttemptI18n", "aiaii");
+export const OnRconLoginAttempt = (
+  fn: (ip: string, password: string, success: number) => void
+) => {
+  samp.on(
+    "OnRconLoginAttemptI18n",
+    (ip: number[], password: number[], success: number): void => {
+      const { charset } = locales[config.language];
+      fn(decodeFromBuf(ip, charset), decodeFromBuf(password, charset), success);
+    }
+  );
+};
+
+samp.registerEvent("OnNPCDisconnectI18n", "ai");
+export const OnNPCDisconnect = (fn: (reason: string) => void) => {
+  samp.on("OnNPCDisconnectI18n", (buf: number[]): void => {
+    fn(decodeFromBuf(buf, locales[config.language].charset));
+  });
 };
