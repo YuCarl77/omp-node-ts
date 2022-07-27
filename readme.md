@@ -1,17 +1,17 @@
 ## Introduction
 
-A very simple [omp server](https://github.com/openmultiplayer/server-beta) that uses the [samp-node](https://github.com/AmyrAhmady/samp-node) plugin and the [samp-node-lib](https://github.com/peterszombati/samp-node-lib) library.
+A very simple [omp server](https://github.com/openmultiplayer/server-beta) boilerplate that uses the [samp-node plugin](https://github.com/AmyrAhmady/samp-node) and the [samp-node-lib](https://github.com/peterszombati/samp-node-lib).
 
 ## Usage
 
 > **The necessary files were removed** to ensure that the latest version is always used and that the repository file size is reduced.
 
-1. download [omp server](https://github.com/openmultiplayer/server-beta/releases) and extract it to the root directory, i.e. `omp-server.exe` and `components` folder
+1. download [omp server](https://github.com/openmultiplayer/server-beta/releases) and extract it to the root directory, i.e. `omp-server[.exe]` and `components` folder
 
-2. download [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `libnode.dll` into the root folder and replace `samp-node.dll` with plugins.
+2. download [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `samp-node.so/dll` in the root folder and `samp-node.so/dll` in the plugins folder.
 
 3. `pnpm install` (install dependencies)
-4. `pnpm dev` (start listening compile and auto-restart server)
+4. `pnpm dev` (start listening compile & auto-restart server)
 
 ## Advantages
 
