@@ -4,6 +4,7 @@
 */
 
 #include <a_samp>
+#include <omp>
 #include <samp-node>
 
 main(){}
