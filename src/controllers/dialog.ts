@@ -12,10 +12,10 @@ const delDialogRecord = (player: Player): boolean => {
 
 OnDialogResponse(
   (player: Player, response: number, listitem: number, inputtext: string) => {
-    const resolve = waitingDialogs.get(player.id);
-    if (!resolve) return;
+    const callback = waitingDialogs.get(player.id);
+    if (!callback) return;
     // bug: does not trigger resolve of promise
-    resolve({ response, listitem, inputtext });
+    callback({ response, listitem, inputtext });
   }
 );
 

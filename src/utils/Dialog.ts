@@ -12,11 +12,11 @@ interface DialogImpl {
   button2: string;
 }
 
-type DialogResponse = Promise<{
+type DialogResponse = {
   response: number;
   listitem: number;
   inputtext: string;
-}>;
+};
 
 /* You don't need to define the dialog id, 
   but you need to pay attention to the fact that you shouldn't repeatedly new the dialog in the function, 
@@ -86,13 +86,12 @@ class Dialog {
   }
   //#endregion
 
-  public show(player: Player): Promise<DialogResponse> {
-    const p = new Promise<DialogResponse>((resolve) => {
-      waitingDialogs.set(player.id, resolve);
-      ShowPlayerDialog(player, this.id, this.dialog);
-    });
-    p.then(() => delDialogRecord(player));
-    return p;
+  public show(player: Player, callback: (response: DialogResponse) => void) {
+    // const p = new Promise<DialogResponse>((resolve) => {
+    waitingDialogs.set(player.id, callback);
+    ShowPlayerDialog(player, this.id, this.dialog);
+    // });
+    // p.then(() => delDialogRecord(player));
   }
 
   public static close(player: Player) {
@@ -108,4 +107,4 @@ class Dialog {
 }
 
 export default Dialog;
-export type { DialogImpl };
+export type { DialogImpl, DialogResponse };
