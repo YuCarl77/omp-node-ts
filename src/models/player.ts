@@ -1,6 +1,6 @@
+import config from "@/config";
 import LanguageEnum from "@/enums/language";
 import { locales } from "@/utils/i18n";
-import { SampPlayer } from "samp-node-lib";
 
 interface Settings {
   locale: LanguageEnum;
@@ -12,11 +12,12 @@ class Player {
   public id: number;
   public name: string;
   public settings: Settings = {
-    locale: LanguageEnum.Chinese,
+    locale: config.language,
   };
-  constructor(id: number, name: string) {
+  constructor(id: number, name: string, settings?: Settings) {
     this.id = id;
     this.name = name;
+    if (settings) this.settings = settings;
   }
   get charset() {
     return locales[this.settings.locale].charset;

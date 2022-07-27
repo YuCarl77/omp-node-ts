@@ -3,11 +3,7 @@ import LanguageEnum from "@/enums/language";
 
 import zh_cn from "./locales/zh-cn.json";
 import en from "./locales/en.json";
-
-// 定义语言，用于后续定位国际化
-// sa:mp的字符集取决于windows，中文默认是gbk/gb2312
-// 重置版应该都是utf8
-// 也有情况是中文但采用gbk的，比如控制台/重置版,还要考虑一下
+import config from "@/config";
 
 const locales = {
   [LanguageEnum.Chinese]: {
@@ -60,7 +56,7 @@ const $t = function (
   replaceable?: any[],
   lang?: LanguageEnum
 ): string {
-  const { value } = locales[lang ? lang : LanguageEnum.Chinese];
+  const { value } = locales[lang ? lang : config.language];
   let text = dotValue(value, key);
   if (text === undefined) return "undefined";
   if (replaceable && replaceable.length) {
