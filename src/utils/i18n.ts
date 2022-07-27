@@ -49,9 +49,10 @@ const encodeToBuf = (content: string, charset: string): number[] => {
 };
 
 // convert byte stream arrays of different encodings to utf8 strings
-const decodeFromBuf = (buf: Buffer, charset: string): string => {
+const decodeFromBuf = (buf: Buffer | number[], charset: string): string => {
   isValidate(charset);
-  return decode(buf, charset);
+  const buffer = buf instanceof Buffer ? buf : Buffer.from(buf);
+  return decode(buffer, charset);
 };
 
 const $t = function (
