@@ -1,6 +1,5 @@
 import Player from "@/models/player";
-//import { decodeFromBuf } from "@/utils/i18n";
-import { OnDialogResponse, SampPlayer } from "samp-node-lib";
+import { OnDialogResponse } from "@/wrappers/helper";
 
 const waitingDialogs: Map<Number, Function> = new Map();
 const delDialogRecord = (player: Player): boolean => {
@@ -12,20 +11,9 @@ const delDialogRecord = (player: Player): boolean => {
 };
 
 OnDialogResponse(
-  (
-    player: SampPlayer,
-    dialogid: number,
-    response: number,
-    listitem: number,
-    inputtext: string
-  ) => {
-    const resolve = waitingDialogs.get(player.playerid);
+  (player: Player, response: number, listitem: number, inputtext: string) => {
+    const resolve = waitingDialogs.get(player.id);
     if (!resolve) return;
-    const p = Player.Players.get(player);
-    if (!p) return;
-    // unfinished:
-    // reverse decoding to utf8
-    // inputtext = decodeFromBuf(inputtext, p.charset);
     // bug: does not trigger resolve of promise
     resolve({ response, listitem, inputtext });
   }

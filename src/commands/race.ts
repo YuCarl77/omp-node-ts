@@ -1,7 +1,7 @@
 import CmdBus from "@/utils/CmdBus";
 import ColorEnum from "@/enums/color";
 import { $t } from "@/utils/i18n";
-import { SendClientMessage } from "@/wrappers/i18n";
+import { SendClientMessage } from "@/wrappers/helper";
 
 /* The tentative idea is to implement interception of commands through decorators, 
 for example, to block access only after login or only for administrators. */

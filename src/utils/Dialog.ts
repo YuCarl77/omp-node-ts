@@ -1,6 +1,6 @@
 import { delDialogRecord, waitingDialogs } from "@/controllers/dialog";
 import Player from "@/models/player";
-import { ShowPlayerDialog } from "@/wrappers/i18n";
+import { ShowPlayerDialog } from "@/wrappers/helper";
 import { DIALOG_STYLE } from "samp-node-lib";
 import { $t } from "./i18n";
 
@@ -86,7 +86,7 @@ class Dialog {
   }
   //#endregion
 
-  public open(player: Player): Promise<DialogResponse> {
+  public show(player: Player): Promise<DialogResponse> {
     const p = new Promise<DialogResponse>((resolve) => {
       waitingDialogs.set(player.id, resolve);
       ShowPlayerDialog(player, this.id, this.dialog);

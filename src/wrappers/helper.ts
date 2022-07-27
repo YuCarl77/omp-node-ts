@@ -80,3 +80,28 @@ export const OnPlayerCommandText = (
     return 1;
   });
 };
+
+samp.registerEvent("OnDialogResponseI18n", "iiiiai");
+export const OnDialogResponse = (
+  fn: (
+    player: Player,
+    response: number,
+    listitem: number,
+    inputtext: string
+  ) => void
+) => {
+  samp.on(
+    "OnDialogResponseI18n",
+    (
+      playerid: number,
+      dialogid: number,
+      response: number,
+      listitem: number,
+      inputbuf: number[]
+    ): void => {
+      const p = Player.Players.get(playerid);
+      if (!p) return;
+      fn(p, response, listitem, decodeFromBuf(inputbuf, p.charset));
+    }
+  );
+};

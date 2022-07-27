@@ -4,7 +4,7 @@ import {
   OnPlayerText,
   SendClientMessage,
   SendClientMessageToAll,
-} from "@/wrappers/i18n";
+} from "@/wrappers/helper";
 import { PlayerEnum } from "@/enums/samp";
 import ColorEnum from "@/enums/color";
 import Player from "@/models/player";
