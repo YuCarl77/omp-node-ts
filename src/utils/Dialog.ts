@@ -86,21 +86,23 @@ class Dialog {
   }
   //#endregion
 
-  public show(player: Player, callback: (response: DialogResponse) => void) {
-    // const p = new Promise<DialogResponse>((resolve) => {
-    waitingDialogs.set(player.id, callback);
-    ShowPlayerDialog(player, this.id, this.dialog);
-    // });
-    // p.then(() => delDialogRecord(player));
+  public show(player: Player): Promise<DialogResponse> {
+    const p = new Promise<DialogResponse>((resolve) => {
+      waitingDialogs.set(player.id, resolve);
+      ShowPlayerDialog(player, this.id, this.dialog);
+    });
+    p.then(() => delDialogRecord(player));
+    return p;
   }
 
   public static close(player: Player) {
     delDialogRecord(player);
+    // omp recommend use HidePlayerDialog, need wrappers
     ShowPlayerDialog(player, -1, {
       style: DIALOG_STYLE.MSGBOX,
-      caption: " ",
-      info: " ",
-      button1: " ",
+      caption: "",
+      info: "",
+      button1: "",
       button2: "",
     });
   }

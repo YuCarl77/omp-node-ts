@@ -11,11 +11,10 @@ const helpDialog = new Dialog({
   button2: "",
 });
 
-CmdBus.on("help", function () {
-  // show help dialog
-  // Unable to use promise, it looks like it will be recycled by the garbage mechanism.
-  // It is not clear whether it is a problem with samp-node. If anyone can solve the problem, they can initiate pull-request.
-  helpDialog.show(this, (res: DialogResponse) => {
-    console.log(res);
-  });
+CmdBus.on("help", async function () {
+  // setTimeout(() => {
+  //   Dialog.close(this);
+  // }, 3000);
+  const res = await helpDialog.show(this);
+  console.log(res);
 });
