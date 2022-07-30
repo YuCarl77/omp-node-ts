@@ -1,5 +1,5 @@
 import CmdBus from "@/utils/CmdBus";
-import Dialog, { DialogResponse } from "@/utils/Dialog";
+import Dialog from "@/utils/Dialog";
 import { $t } from "@/utils/i18n";
 import { DIALOG_STYLE } from "samp-node-lib";
 
