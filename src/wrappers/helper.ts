@@ -149,5 +149,5 @@ export const GetPlayerName = (player: Player): string => {
     player.id,
     PlayerEnum.MAX_PLAYER_NAME
   );
-  return decodeFromBuf(buf, player.charset);
+  return decodeFromBuf(buf.slice(0, buf.indexOf(0)), player.charset);
 };
