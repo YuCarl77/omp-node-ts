@@ -3,6 +3,7 @@ import { decodeFromBuf, encodeToBuf, locales } from "@/utils/i18n";
 import Player from "@/models/player";
 import type { DialogImpl } from "@/utils/Dialog";
 import config from "@/config";
+import { PlayerEnum } from "@/enums/samp";
 
 type processTuple = [string, string | number[]];
 
@@ -139,4 +140,14 @@ export const OnNPCDisconnect = (fn: (reason: string) => void) => {
   samp.on("OnNPCDisconnectI18n", (buf: number[]): void => {
     fn(decodeFromBuf(buf, locales[config.language].charset));
   });
+};
+
+export const GetPlayerName = (player: Player): string => {
+  const buf: number[] = samp.callNative(
+    "GetPlayerName",
+    "iAi",
+    player.id,
+    PlayerEnum.MAX_PLAYER_NAME
+  );
+  return decodeFromBuf(buf, player.charset);
 };

@@ -10,13 +10,12 @@ interface Settings {
 class Player {
   public static Players: Map<Number, Player> = new Map();
   public id: number;
-  public name: string;
+  public name: string = "";
   public settings: Settings = {
     locale: config.language,
   };
-  constructor(id: number, name: string, settings?: Settings) {
+  constructor(id: number, settings?: Settings) {
     this.id = id;
-    this.name = name;
     if (settings) this.settings = settings;
   }
   get charset() {
