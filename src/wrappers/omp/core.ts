@@ -18,7 +18,7 @@ export const AllowNickNameCharacter = (
 };
 
 export const IsNickNameCharacterAllowed = (character: string): boolean => {
-  return samp.callNative("IsNickNameCharacterAllowed", "iI", character[0]);
+  return samp.callNative("IsNickNameCharacterAllowed", "i", character[0]);
 };
 
 export const AddServerRule = (name: string, value: string): boolean => {
