@@ -40,7 +40,7 @@ export const RemoveServerRule = (name: string): boolean => {
 export const SendClientMessageToAllf = (
   color: number,
   message: string,
-  ...args: any
+  ...args: Array<any>
 ): void => {
   return samp.callNative(
     "SendClientMessageToAllf",
@@ -56,7 +56,7 @@ export const GameTextForAllf = (
   displaytime: number,
   style: number,
   message: string,
-  ...args: any
+  ...args: Array<any>
 ): void => {
   return samp.callNative(
     "GameTextForAllf",
@@ -72,7 +72,7 @@ export const GameTextForAllf = (
 export const SendPlayerMessageToAllf = (
   senderid: number,
   message: string,
-  ...args: any
+  ...args: Array<any>
 ): void => {
   return samp.callNative(
     "SendPlayerMessageToAllf",
@@ -83,7 +83,10 @@ export const SendPlayerMessageToAllf = (
   );
 };
 
-export const SendRconCommandf = (command: string, ...args: any): void => {
+export const SendRconCommandf = (
+  command: string,
+  ...args: Array<any>
+): void => {
   return samp.callNative("SendRconCommandf", "sv", command, args);
 };
 
