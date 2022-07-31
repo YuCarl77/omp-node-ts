@@ -4,8 +4,9 @@ import LanguageEnum from "@/enums/language";
 import zh_cn from "./locales/zh-cn.json";
 import en from "./locales/en.json";
 import config from "@/config";
+import { AllowNickNameCharacter } from "@/wrappers/omp";
 
-const locales = {
+export const locales = {
   [LanguageEnum.Chinese]: {
     charset: "gbk",
     value: zh_cn,
@@ -35,19 +36,22 @@ const isValidate = (charset: string): void => {
 // convert utf8 strings to different encoded byte stream arrays
 // used to solve the internationalization language display display messy problem
 // https://github.com/AmyrAhmady/samp-node/issues/2
-const encodeToBuf = (content: string, charset: string): number[] => {
+export const encodeToBuf = (content: string, charset: string): number[] => {
   isValidate(charset);
   return [...encode(content, charset), 0];
 };
 
 // convert byte stream arrays of different encodings to utf8 strings
-const decodeFromBuf = (buf: Buffer | number[], charset: string): string => {
+export const decodeFromBuf = (
+  buf: Buffer | number[],
+  charset: string
+): string => {
   isValidate(charset);
   const buffer = buf instanceof Buffer ? buf : Buffer.from(buf);
   return decode(buffer, charset);
 };
 
-const $t = function (
+export const $t = function (
   key: string,
   replaceable?: any[],
   lang?: LanguageEnum
@@ -67,4 +71,10 @@ const $t = function (
   return text;
 };
 
-export { $t, encodeToBuf, decodeFromBuf, locales };
+// Allow all bytes of user nicknames, if you need to specify nickname rules, please pass regular expression checks when the player connects.
+// In utf8, different national languages take up different numbers of bytes, but no matter how many bytes they take up, a byte always takes up 8 bits of binary, i.e., a decimal integer up to 255.
+export const allowMultibyteNicknames = () => {
+  for (let i = 0; i < 255; i++) {
+    AllowNickNameCharacter(i, true);
+  }
+};

@@ -1,5 +1,5 @@
 import { GameModeExit, OnGameModeExit, OnGameModeInit } from "samp-node-lib";
-import { $t } from "@/utils/i18n";
+import { $t, allowMultibyteNicknames } from "@/utils/i18n";
 
 // register all commands
 import "@/commands";
@@ -22,6 +22,7 @@ class GameMode {
     this.initialized = true;
     OnGameModeInit((): void => {
       // do something during initialization, such as load some objects
+      allowMultibyteNicknames();
       // final callback to main.ts
       func();
     });

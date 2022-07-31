@@ -10,15 +10,12 @@ export const IsValidNickName = (name: string): boolean => {
   return samp.callNative("IsValidNickName", "s", name);
 };
 
-export const AllowNickNameCharacter = (
-  character: string,
-  allow: boolean
-): void => {
-  return samp.callNative("AllowNickNameCharacter", "ii", character[0], allow);
+export const AllowNickNameCharacter = (byte: number, allow: boolean): void => {
+  return samp.callNative("AllowNickNameCharacter", "ii", byte, allow);
 };
 
-export const IsNickNameCharacterAllowed = (character: string): boolean => {
-  return samp.callNative("IsNickNameCharacterAllowed", "i", character[0]);
+export const IsNickNameCharacterAllowed = (byte: number): boolean => {
+  return samp.callNative("IsNickNameCharacterAllowed", "i", byte);
 };
 
 export const AddServerRule = (name: string, value: string): boolean => {
