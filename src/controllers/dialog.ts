@@ -15,7 +15,8 @@ OnDialogResponse(
     const callback = waitingDialogs.get(player.id);
     if (!callback) return;
     // bug: does not trigger resolve of promise
-    callback({ response, listitem, inputtext });
+    // fix: it only works if you put it in an event loop
+    process.nextTick(() => callback({ response, listitem, inputtext }));
   }
 );
 

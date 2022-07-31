@@ -15,6 +15,7 @@ OnPlayerCommandText((p: Player, cmdtext: string) => {
     support string and array pass, array used for alias.
   */
   const exist: boolean = CmdBus.emit(p, regCmdtext[0], regCmdtext.splice(1));
+  if (exist) return;
   const msg = $t("error.commandUndefined", [cmdtext]);
-  if (!exist) SendClientMessage(p, ColorEnum.white, msg);
+  SendClientMessage(p, ColorEnum.white, msg);
 });
