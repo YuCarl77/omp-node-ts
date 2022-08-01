@@ -3,11 +3,11 @@ export const ClearBanList = (): void => {
 };
 
 export const IsBanned = (ipaddress: string): boolean => {
-  return samp.callNative("IsBanned", "s", ipaddress);
+  return Boolean(samp.callNative("IsBanned", "s", ipaddress));
 };
 
 export const IsValidNickName = (name: string): boolean => {
-  return samp.callNative("IsValidNickName", "s", name);
+  return Boolean(samp.callNative("IsValidNickName", "s", name));
 };
 
 export const AllowNickNameCharacter = (byte: number, allow: boolean): void => {
@@ -15,23 +15,23 @@ export const AllowNickNameCharacter = (byte: number, allow: boolean): void => {
 };
 
 export const IsNickNameCharacterAllowed = (byte: number): boolean => {
-  return samp.callNative("IsNickNameCharacterAllowed", "i", byte);
+  return Boolean(samp.callNative("IsNickNameCharacterAllowed", "i", byte));
 };
 
 export const AddServerRule = (name: string, value: string): boolean => {
-  return samp.callNative("AddServerRule", "ss", name, value);
+  return Boolean(samp.callNative("AddServerRule", "ss", name, value));
 };
 
 export const SetServerRule = (name: string, value: string): boolean => {
-  return samp.callNative("SetServerRule", "ss", name, value);
+  return Boolean(samp.callNative("SetServerRule", "ss", name, value));
 };
 
 export const IsValidServerRule = (name: string): boolean => {
-  return samp.callNative("IsValidServerRule", "s", name);
+  return Boolean(samp.callNative("IsValidServerRule", "s", name));
 };
 
 export const RemoveServerRule = (name: string): boolean => {
-  return samp.callNative("RemoveServerRule", "s", name);
+  return Boolean(samp.callNative("RemoveServerRule", "s", name));
 };
 
 export const SendClientMessageToAllf = (
