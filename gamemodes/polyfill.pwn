@@ -9,6 +9,15 @@
 
 main() {}
 
+public OnGameModeInit() {
+    // In utf8, different national languages take up different numbers of bytes, but no matter how many bytes they take up, a byte always takes up 8 bits of binary, i.e., a decimal integer up to 255.
+    // Most multibyte nicknames are supported to connect to the server, but not for bytes with a decimal size of 233 ～ 255, because the player's spawn will crash after the call.
+    for (new i = 0; i <= 232; i++) {
+        AllowNickNameCharacter(i, true);
+    }
+    return 1;
+}
+
 stock getByteLength(string[]) {
     new len = 0;
     /* get character from pack */

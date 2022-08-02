@@ -70,11 +70,3 @@ export const $t = function (
   }
   return text;
 };
-
-// Allow all bytes of user nicknames, if you need to specify nickname rules, please pass regular expression checks when the player connects.
-// In utf8, different national languages take up different numbers of bytes, but no matter how many bytes they take up, a byte always takes up 8 bits of binary, i.e., a decimal integer up to 255.
-export const allowMultibyteNicknames = () => {
-  for (let i = 0; i < 255; i++) {
-    AllowNickNameCharacter(i, true);
-  }
-};
