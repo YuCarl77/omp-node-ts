@@ -54,7 +54,7 @@ export const decodeFromBuf = (
 
 export const $t = function (
   key: string,
-  replaceable?: any[],
+  replaceable?: any[] | undefined | null,
   lang: LanguageEnum = config.language
 ): string {
   const { value } = locales[lang];

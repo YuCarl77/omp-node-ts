@@ -7,7 +7,11 @@ import { $t } from "@/utils/i18n";
 OnPlayerCommandText((p: Player, cmdtext: string) => {
   const regCmdtext = cmdtext.match(/[^/\s]+/gi);
   if (regCmdtext === null || regCmdtext.length === 0) {
-    SendClientMessage(p, ColorEnum.yellow, $t("error.commandFormat"));
+    SendClientMessage(
+      p,
+      ColorEnum.yellow,
+      $t("error.commandFormat", null, p.locale)
+    );
     return 1;
   }
   /* 
@@ -16,6 +20,6 @@ OnPlayerCommandText((p: Player, cmdtext: string) => {
   */
   const exist: boolean = CmdBus.emit(p, regCmdtext[0], regCmdtext.splice(1));
   if (exist) return;
-  const msg = $t("error.commandUndefined", [cmdtext]);
+  const msg = $t("error.commandUndefined", [cmdtext], p.locale);
   SendClientMessage(p, ColorEnum.white, msg);
 });

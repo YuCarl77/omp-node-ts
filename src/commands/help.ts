@@ -11,9 +11,9 @@ CmdBus.on("help", async function () {
   // setTimeout(() => {
   //   Dialog.close(this);
   // }, 3000);
-  helpDialog.caption = $t("dialog.help.caption", [], this.locale);
-  helpDialog.info = $t("dialog.help.info", [], this.locale);
-  helpDialog.button1 = $t("dialog.help.button1", [], this.locale);
+  helpDialog.caption = $t("dialog.help.caption", null, this.locale);
+  helpDialog.info = $t("dialog.help.info", null, this.locale);
+  helpDialog.button1 = $t("dialog.help.button1", null, this.locale);
   const res = await helpDialog.show(this);
   console.log(res);
 });

@@ -13,7 +13,7 @@ CmdBus.on(["race"], function (...args) {
     SendClientMessage(
       this,
       ColorEnum.white,
-      $t("tips.cmd.next", [next.toString()])
+      $t("tips.cmd.next", [next.toString()], this.locale)
     );
   }
 });
