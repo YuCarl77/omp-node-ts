@@ -21,6 +21,12 @@ class Player {
   get charset() {
     return locales[this.settings.locale].charset;
   }
+  get locale(): LanguageEnum {
+    return this.settings.locale;
+  }
+  set locale(language: LanguageEnum) {
+    this.settings.locale = language;
+  }
 }
 
 export default Player;

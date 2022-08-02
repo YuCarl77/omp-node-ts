@@ -4,14 +4,15 @@ import LanguageEnum from "@/enums/language";
 import zh_cn from "./locales/zh-cn.json";
 import en from "./locales/en.json";
 import config from "@/config";
-import { AllowNickNameCharacter } from "@/wrappers/omp";
 
 export const locales = {
   [LanguageEnum.Chinese]: {
+    label: "简体中文",
     charset: "gbk",
     value: zh_cn,
   },
   [LanguageEnum.English]: {
+    label: "English",
     charset: "utf8",
     value: en,
   },
@@ -54,9 +55,9 @@ export const decodeFromBuf = (
 export const $t = function (
   key: string,
   replaceable?: any[],
-  lang?: LanguageEnum
+  lang: LanguageEnum = config.language
 ): string {
-  const { value } = locales[lang ? lang : config.language];
+  const { value } = locales[lang];
   let text = dotValue(value, key);
   if (text === undefined) return "undefined";
   if (replaceable && replaceable.length) {

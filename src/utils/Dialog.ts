@@ -5,11 +5,11 @@ import { DIALOG_STYLE } from "samp-node-lib";
 import { $t } from "./i18n";
 
 interface DialogImpl {
-  style: DIALOG_STYLE;
-  caption: string;
-  info: string;
-  button1: string;
-  button2: string;
+  style?: DIALOG_STYLE;
+  caption?: string;
+  info?: string;
+  button1?: string;
+  button2?: string;
 }
 
 type DialogResponse = {
@@ -50,38 +50,38 @@ class Dialog {
   }
 
   // #region
-  public get style(): DIALOG_STYLE {
+  public get style(): DIALOG_STYLE | undefined {
     return this.dialog.style;
   }
-  public set style(v: DIALOG_STYLE) {
+  public set style(v: DIALOG_STYLE | undefined) {
     this.dialog.style = v;
   }
 
-  public get caption(): string {
+  public get caption(): string | undefined {
     return this.dialog.caption;
   }
-  public set caption(v: string) {
+  public set caption(v: string | undefined) {
     this.dialog.caption = v;
   }
 
-  public get info(): string {
+  public get info(): string | undefined {
     return this.dialog.info;
   }
-  public set info(v: string) {
+  public set info(v: string | undefined) {
     this.dialog.info = v;
   }
 
-  public get button1(): string {
+  public get button1(): string | undefined {
     return this.dialog.button1;
   }
-  public set button1(v: string) {
+  public set button1(v: string | undefined) {
     this.dialog.button1 = v;
   }
 
-  public get button2(): string {
+  public get button2(): string | undefined {
     return this.dialog.button2;
   }
-  public set button2(v: string) {
+  public set button2(v: string | undefined) {
     this.dialog.button2 = v;
   }
   //#endregion

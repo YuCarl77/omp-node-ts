@@ -1,5 +1,5 @@
 import { GameModeExit, OnGameModeExit, OnGameModeInit } from "samp-node-lib";
-import { $t, allowMultibyteNicknames } from "@/utils/i18n";
+import { $t } from "@/utils/i18n";
 
 // register all commands
 import "@/commands";

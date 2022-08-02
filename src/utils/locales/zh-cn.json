@@ -21,6 +21,9 @@
       "caption": "帮助",
       "info": "你可以使用以下命令：xxx",
       "button1": "关闭"
+    },
+    "lang": {
+      "change": "您将语言更换为 %s，可以通过 /language 再次修改语言。"
     }
   }
 }

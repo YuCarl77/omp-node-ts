@@ -5,16 +5,15 @@ import { DIALOG_STYLE } from "samp-node-lib";
 
 const helpDialog = new Dialog({
   style: DIALOG_STYLE.MSGBOX,
-  caption: $t("dialog.help.caption"),
-  info: $t("dialog.help.info"),
-  button1: $t("dialog.help.button1"),
-  button2: "",
 });
 
 CmdBus.on("help", async function () {
   // setTimeout(() => {
   //   Dialog.close(this);
   // }, 3000);
+  helpDialog.caption = $t("dialog.help.caption", [], this.locale);
+  helpDialog.info = $t("dialog.help.info", [], this.locale);
+  helpDialog.button1 = $t("dialog.help.button1", [], this.locale);
   const res = await helpDialog.show(this);
   console.log(res);
 });
