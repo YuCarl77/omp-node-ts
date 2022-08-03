@@ -1,5 +1,9 @@
-enum LanguageEnum {
+export enum LanguageEnum {
   Chinese,
   English,
 }
-export default LanguageEnum;
+
+export enum CharsetEnum {
+  Chinese = "gbk",
+  Common = "utf8",
+}

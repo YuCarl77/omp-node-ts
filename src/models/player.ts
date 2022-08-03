@@ -1,9 +1,9 @@
 import config from "@/config";
 import LanguageEnum from "@/enums/language";
-import { locales } from "@/utils/i18n";
 
 interface Settings {
   locale: LanguageEnum;
+  charset: string;
 }
 
 // It is currently inherited because some function api depend on it and should be removed later
@@ -13,13 +13,17 @@ class Player {
   public name: string = "";
   public settings: Settings = {
     locale: config.language,
+    charset: config.charset,
   };
   constructor(id: number, settings?: Settings) {
     this.id = id;
     if (settings) this.settings = settings;
   }
   get charset() {
-    return locales[this.settings.locale].charset;
+    return this.settings.charset;
+  }
+  set charset(charset: string) {
+    this.settings.charset = charset;
   }
   get locale(): LanguageEnum {
     return this.settings.locale;

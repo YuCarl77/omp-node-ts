@@ -1,19 +1,22 @@
 import { encode, decode, encodingExists } from "iconv-lite";
-import LanguageEnum from "@/enums/language";
+import { LanguageEnum } from "@/enums/language";
 
 import zh_cn from "./locales/zh-cn.json";
 import en from "./locales/en.json";
 import config from "@/config";
 
-export const locales = {
+export interface locale {
+  label: string;
+  value: { [key: string]: any };
+}
+
+export const locales: Record<LanguageEnum, locale> = {
   [LanguageEnum.Chinese]: {
-    label: "简体中文",
-    charset: "gbk",
+    label: "Simplified Chinese",
     value: zh_cn,
   },
   [LanguageEnum.English]: {
     label: "English",
-    charset: "utf8",
     value: en,
   },
 };

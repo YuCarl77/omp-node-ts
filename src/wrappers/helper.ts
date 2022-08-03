@@ -111,14 +111,14 @@ export const OnDialogResponse = (
 samp.registerEvent("OnClientMessageI18n", "iai");
 export const OnClientMessage = (fn: (color: number, text: string) => void) => {
   samp.on("OnClientMessageI18n", (color: number, buf: number[]): void => {
-    fn(color, decodeFromBuf(buf, locales[config.language].charset));
+    fn(color, decodeFromBuf(buf, config.charset));
   });
 };
 
 samp.registerEvent("OnRconCommandI18n", "ai");
 export const OnRconCommand = (fn: (cmd: string) => void) => {
   samp.on("OnRconCommandI18n", (buf: number[]): void => {
-    fn(decodeFromBuf(buf, locales[config.language].charset));
+    fn(decodeFromBuf(buf, config.charset));
   });
 };
 
@@ -129,7 +129,7 @@ export const OnRconLoginAttempt = (
   samp.on(
     "OnRconLoginAttemptI18n",
     (ip: number[], password: number[], success: number): void => {
-      const { charset } = locales[config.language];
+      const { charset } = config;
       fn(decodeFromBuf(ip, charset), decodeFromBuf(password, charset), success);
     }
   );
@@ -138,7 +138,7 @@ export const OnRconLoginAttempt = (
 samp.registerEvent("OnNPCDisconnectI18n", "ai");
 export const OnNPCDisconnect = (fn: (reason: string) => void) => {
   samp.on("OnNPCDisconnectI18n", (buf: number[]): void => {
-    fn(decodeFromBuf(buf, locales[config.language].charset));
+    fn(decodeFromBuf(buf, config.charset));
   });
 };
 
