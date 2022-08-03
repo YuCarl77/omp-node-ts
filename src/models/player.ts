@@ -1,5 +1,5 @@
 import config from "@/config";
-import LanguageEnum from "@/enums/language";
+import { LanguageEnum } from "@/enums/language";
 
 interface Settings {
   locale: LanguageEnum;
