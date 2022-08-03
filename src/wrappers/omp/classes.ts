@@ -1,4 +1,4 @@
-import { PlayerClassImpl, PlayerClassTuple } from "./interfaces/PlayerClass";
+import { PlayerClassImpl } from "./interfaces/PlayerClass";
 
 export const GetAvailableClasses = (): number => {
   return samp.callNative("GetAvailableClasses", "");
@@ -8,7 +8,7 @@ export const GetAvailableClasses = (): number => {
 // bug: z_angle The value of does not look accurate? not sure of the cause of the problem
 export const GetPlayerClass = (classid: number): Boolean | PlayerClassImpl => {
   if (classid < GetAvailableClasses() || classid > 319) return false;
-  const res: PlayerClassTuple = samp.callNative(
+  const res: number[] = samp.callNative(
     "GetPlayerClass",
     "iIIFFFFIIIIII",
     classid

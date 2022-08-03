@@ -1,14 +1,9 @@
-import { BoundsImpl, BoundsTuple } from "./interfaces/Bounds";
-import {
-  CheckPointImpl,
-  CheckPointTuple,
-  RaceCheckPointImpl,
-  RaceCheckPointTuple,
-} from "./interfaces/CheckPoint";
-import { AttachedObjectImpl, AttachedObjectTuple } from "./interfaces/Object";
-import { OffsetsImpl, OffsetsTuple } from "./interfaces/Offsets";
-import { PlayerClassImpl, PlayerClassTuple } from "./interfaces/PlayerClass";
-import { QuatImpl, QuatTuple } from "./interfaces/Quat";
+import { BoundsImpl } from "./interfaces/Bounds";
+import { CheckPointImpl, RaceCheckPointImpl } from "./interfaces/CheckPoint";
+import { AttachedObjectImpl } from "./interfaces/Object";
+import { OffsetsImpl } from "./interfaces/Offsets";
+import { PlayerClassImpl } from "./interfaces/PlayerClass";
+import { QuatImpl } from "./interfaces/Quat";
 
 export const TogglePlayerWidescreen = (
   playerid: number,
@@ -35,11 +30,7 @@ export const GetSpawnInfo = (playerid: number): PlayerClassImpl => {
     weapon2_ammo = 0,
     weapon3 = 0,
     weapon3_ammo = 0,
-  ]: PlayerClassTuple = samp.callNative(
-    "GetSpawnInfo",
-    "iIIFFFFIIIIII",
-    playerid
-  );
+  ]: number[] = samp.callNative("GetSpawnInfo", "iIIFFFFIIIIII", playerid);
   return {
     teamid,
     modelid,
@@ -68,8 +59,11 @@ export const IsPlayerCheckpointActive = (playerid: number): boolean => {
 };
 
 export const GetPlayerCheckpoint = (playerid: number): CheckPointImpl => {
-  const [fX = 0.0, fY = 0.0, fZ = 0.0, fSize = 0.0]: CheckPointTuple =
-    samp.callNative("GetPlayerCheckpoint", "iFFFF", playerid);
+  const [fX = 0.0, fY = 0.0, fZ = 0.0, fSize = 0.0]: number[] = samp.callNative(
+    "GetPlayerCheckpoint",
+    "iFFFF",
+    playerid
+  );
   return { fX, fY, fZ, fSize };
 };
 
@@ -90,7 +84,7 @@ export const GetPlayerRaceCheckpoint = (
     fNextY = 0.0,
     fNextZ = 0.0,
     fSize = 0.0,
-  ]: RaceCheckPointTuple = samp.callNative(
+  ]: number[] = samp.callNative(
     "GetPlayerRaceCheckpoint",
     "iFFFFFFF",
     playerid
@@ -99,7 +93,7 @@ export const GetPlayerRaceCheckpoint = (
 };
 
 export const GetPlayerWorldBounds = (playerid: number): BoundsImpl => {
-  const [x_max = 0.0, x_min = 0.0, y_max = 0.0, y_min = 0.0]: BoundsTuple =
+  const [x_max = 0.0, x_min = 0.0, y_max = 0.0, y_min = 0.0]: number[] =
     samp.callNative("GetPlayerWorldBounds", "iFFFF", playerid);
   return { x_max, x_min, y_max, y_min };
 };
@@ -129,13 +123,13 @@ export const GetPlayerZAim = (playerid: number): number => {
 };
 
 export const GetPlayerSurfingOffsets = (playerid: number): OffsetsImpl => {
-  const [fOffsetX = 0.0, fOffsetY = 0.0, fOffsetZ = 0.0]: OffsetsTuple =
+  const [fOffsetX = 0.0, fOffsetY = 0.0, fOffsetZ = 0.0]: number[] =
     samp.callNative("GetPlayerSurfingOffsets", "iFFF", playerid);
   return { fOffsetX, fOffsetY, fOffsetZ };
 };
 
 export const GetPlayerRotationQuat = (playerid: number): QuatImpl => {
-  const [w = 0.0, x = 0.0, y = 0.0, z = 0.0]: QuatTuple = samp.callNative(
+  const [w = 0.0, x = 0.0, y = 0.0, z = 0.0]: number[] = samp.callNative(
     "GetPlayerRotationQuat",
     "iFFFF",
     playerid
@@ -216,7 +210,7 @@ export const GetPlayerAttachedObject = (
     fScaleZ = 0.0,
     materialcolor1 = 0,
     materialcolor2 = 0,
-  ]: AttachedObjectTuple = samp.callNative(
+  ]: number[] = samp.callNative(
     "GetPlayerAttachedObject",
     "iiIIFFFFFFFFFII",
     playerid,
