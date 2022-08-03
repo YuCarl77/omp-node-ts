@@ -1,5 +1,5 @@
 import Player from "@/models/player";
-import { OnDialogResponse } from "@/wrappers/helper";
+import { OnDialogResponse } from "@/utils/helper";
 
 const waitingDialogs: Map<Number, Function> = new Map();
 const delDialogRecord = (player: Player): boolean => {

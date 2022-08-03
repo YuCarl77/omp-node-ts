@@ -1,7 +1,7 @@
 import CmdBus from "@/utils/CmdBus";
 import ColorEnum from "@/enums/color";
 import Player from "@/models/player";
-import { OnPlayerCommandText, SendClientMessage } from "@/wrappers/helper";
+import { OnPlayerCommandText, SendClientMessage } from "@/utils/helper";
 import { $t } from "@/utils/i18n";
 
 OnPlayerCommandText((p: Player, cmdtext: string) => {

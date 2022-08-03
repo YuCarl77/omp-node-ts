@@ -1,6 +1,6 @@
 import { delDialogRecord, waitingDialogs } from "@/controllers/dialog";
 import Player from "@/models/player";
-import { ShowPlayerDialog } from "@/wrappers/helper";
+import { ShowPlayerDialog } from "@/utils/helper";
 import { DIALOG_STYLE } from "samp-node-lib";
 import { $t } from "./i18n";
 

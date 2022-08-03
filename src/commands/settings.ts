@@ -4,7 +4,7 @@ import Player from "@/models/player";
 import CmdBus from "@/utils/CmdBus";
 import Dialog from "@/utils/Dialog";
 import { $t, locale, locales } from "@/utils/i18n";
-import { GetPlayerName, SendClientMessage } from "@/wrappers/helper";
+import { GetPlayerName, SendClientMessage } from "@/utils/helper";
 import { DIALOG_STYLE } from "samp-node-lib";
 
 CmdBus.on(["language", "lang"], function () {
