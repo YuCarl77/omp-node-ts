@@ -1,5 +1,5 @@
 export const ClearBanList = (): void => {
-  return samp.callNative("ClearBanList", "");
+  samp.callNative("ClearBanList", "");
 };
 
 export const IsBanned = (ipaddress: string): boolean => {
@@ -11,7 +11,7 @@ export const IsValidNickName = (name: string): boolean => {
 };
 
 export const AllowNickNameCharacter = (byte: number, allow: boolean): void => {
-  return samp.callNative("AllowNickNameCharacter", "ii", byte, allow);
+  samp.callNative("AllowNickNameCharacter", "ii", byte, allow);
 };
 
 export const IsNickNameCharacterAllowed = (byte: number): boolean => {
@@ -39,13 +39,7 @@ export const SendClientMessageToAllf = (
   message: string,
   ...args: Array<any>
 ): void => {
-  return samp.callNative(
-    "SendClientMessageToAllf",
-    "isv",
-    color,
-    message,
-    args
-  );
+  samp.callNative("SendClientMessageToAllf", "isv", color, message, args);
 };
 
 export const GameTextForAllf = (
@@ -55,7 +49,7 @@ export const GameTextForAllf = (
   message: string,
   ...args: Array<any>
 ): void => {
-  return samp.callNative(
+  samp.callNative(
     "GameTextForAllf",
     "iiisv",
     color,
@@ -71,20 +65,14 @@ export const SendPlayerMessageToAllf = (
   message: string,
   ...args: Array<any>
 ): void => {
-  return samp.callNative(
-    "SendPlayerMessageToAllf",
-    "isv",
-    senderid,
-    message,
-    args
-  );
+  samp.callNative("SendPlayerMessageToAllf", "isv", senderid, message, args);
 };
 
 export const SendRconCommandf = (
   command: string,
   ...args: Array<any>
 ): void => {
-  return samp.callNative("SendRconCommandf", "sv", command, args);
+  samp.callNative("SendRconCommandf", "sv", command, args);
 };
 
 export const GetRunningTimers = (): number => {

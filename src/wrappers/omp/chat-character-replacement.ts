@@ -1,5 +1,5 @@
 export const ToggleChatTextReplacement = (toggle: boolean): void => {
-  return samp.callNative("ToggleChatTextReplacement", "i", toggle);
+  samp.callNative("ToggleChatTextReplacement", "i", toggle);
 };
 
 export const ChatTextReplacementToggled = (): boolean => {

@@ -1,27 +1,14 @@
+import { PlayerClassImpl, PlayerClassTuple } from "./interfaces/PlayerClass";
+
 export const GetAvailableClasses = (): number => {
   return samp.callNative("GetAvailableClasses", "");
 };
 
-interface PlayerClass {
-  teamid: number;
-  modelid: number;
-  spawn_x: number;
-  spawn_y: number;
-  spawn_z: number;
-  z_angle: number;
-  weapon1: number;
-  weapon1_ammo: number;
-  weapon2: number;
-  weapon2_ammo: number;
-  weapon3: number;
-  weapon3_ammo: number;
-}
-
 // when getting a class through AddPlayerClass(without ex), teamid may be 255.
 // bug: z_angle The value of does not look accurate? not sure of the cause of the problem
-export const GetPlayerClass = (classid: number): Boolean | PlayerClass => {
+export const GetPlayerClass = (classid: number): Boolean | PlayerClassImpl => {
   if (classid < GetAvailableClasses() || classid > 319) return false;
-  const res: number[] = samp.callNative(
+  const res: PlayerClassTuple = samp.callNative(
     "GetPlayerClass",
     "iIIFFFFIIIIII",
     classid
