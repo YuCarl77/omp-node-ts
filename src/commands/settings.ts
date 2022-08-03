@@ -35,7 +35,7 @@ const chooseCharsetDialog = new Dialog({
 });
 
 export const chooseLanguage = (p: Player) => {
-  return new Promise(async (resolve) => {
+  return new Promise<Player>(async (resolve) => {
     const { listitem: lang } = await chooseLangDialog.show(p);
     p.locale = lang;
     const { listitem: charsetIdx } = await chooseCharsetDialog.show(p);
