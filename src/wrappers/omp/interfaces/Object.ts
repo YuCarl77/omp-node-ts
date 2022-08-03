@@ -7,7 +7,7 @@ export interface AttachedObjectImpl {
   fRotX: number;
   fRotY: number;
   fRotZ: number;
-  fSacleX: number;
+  fScaleX: number;
   fScaleY: number;
   fScaleZ: number;
   materialcolor1: number;
