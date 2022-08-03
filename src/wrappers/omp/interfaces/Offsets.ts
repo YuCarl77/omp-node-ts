@@ -3,5 +3,3 @@ export interface OffsetsImpl {
   fOffsetY: number;
   fOffsetZ: number;
 }
-
-export type OffsetsTuple = [number, number, number];

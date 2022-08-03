@@ -4,4 +4,3 @@ export interface QuatImpl {
   y: number;
   z: number;
 }
-export type QuatTuple = [number, number, number, number];

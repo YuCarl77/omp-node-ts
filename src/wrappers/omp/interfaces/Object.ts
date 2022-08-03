@@ -13,19 +13,3 @@ export interface AttachedObjectImpl {
   materialcolor1: number;
   materialcolor2: number;
 }
-
-export type AttachedObjectTuple = [
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number
-];

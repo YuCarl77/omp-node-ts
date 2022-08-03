@@ -12,18 +12,3 @@ export interface PlayerClassImpl {
   weapon3: number;
   weapon3_ammo: number;
 }
-
-export type PlayerClassTuple = [
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number
-];
