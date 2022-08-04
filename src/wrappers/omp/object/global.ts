@@ -80,7 +80,7 @@ export const GetObjectMaterial = (
   objectid: number,
   materialindex: number
 ): MaterialImpl => {
-  let [modelid, txdname, texturename, materialcolor]: [
+  let [modelid = 0, txdname, texturename, materialcolor = 0]: [
     number,
     string,
     string,
@@ -103,13 +103,13 @@ export const GetObjectMaterialText = (
 ): MaterialTextImpl => {
   let [
     text,
-    materialsize,
+    materialsize = 0,
     fontface,
-    fontsize,
-    bold,
-    fontcolor,
-    backcolor,
-    textalignment,
+    fontsize = 0,
+    bold = 0,
+    fontcolor = 0,
+    backcolor = 0,
+    textalignment = 0,
   ]: [
     string,
     number,

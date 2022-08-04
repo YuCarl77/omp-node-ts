@@ -15,7 +15,7 @@ export * from "./gangzone/player";
 export * from "./menu";
 export * from "./object/global";
 export * from "./object/player";
-export * from "./pickup-global";
+export * from "./pickup/global";
 export * from "./player";
 export * from "./textdraw/player";
 export * from "./textdraw/global";
