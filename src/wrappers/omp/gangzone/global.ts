@@ -49,7 +49,7 @@ export const IsGangZoneFlashingForPlayer = (
 
 export const GangZoneGetPos = (zoneid: number): GangZonePos => {
   const [fMinX = 0.0, fMinY = 0.0, fMaxX = 0.0, fMaxY = 0.0]: number[] =
-    samp.callNative("GangZoneGetPos", "i", zoneid);
+    samp.callNative("GangZoneGetPos", "iFFFF", zoneid);
   return { fMinX, fMinY, fMaxX, fMaxY };
 };
 
