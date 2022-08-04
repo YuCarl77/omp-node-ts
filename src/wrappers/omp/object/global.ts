@@ -70,12 +70,9 @@ export const GetObjectSyncRotation = (objectid: number): number => {
 export const IsObjectMaterialSlotUsed = (
   objectid: number,
   materialindex: number
-) => {
-  return samp.callNative(
-    "IsObjectMaterialSlotUsed",
-    "ii",
-    objectid,
-    materialindex
+): boolean => {
+  return Boolean(
+    samp.callNative("IsObjectMaterialSlotUsed", "ii", objectid, materialindex)
   );
 };
 
