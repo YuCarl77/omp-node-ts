@@ -153,16 +153,16 @@ export const GetPlayerRawIp = (playerid: number): string => {
   return samp.callNative("GetPlayerRawIp", "i", playerid);
 };
 
-export const SetPlayerGravity = (playerid: number, gravity: number): void => {
-  samp.callNative("SetPlayerGravity", "if", playerid, gravity);
+export const SetPlayerGravity = (playerid: number, gravity: number): number => {
+  return samp.callNative("SetPlayerGravity", "if", playerid, gravity);
 };
 
 export const GetPlayerGravity = (playerid: number): number => {
   return samp.callNativeFloat("GetPlayerGravity", "i", playerid);
 };
 
-export const SetPlayerAdmin = (playerid: number, admin: boolean): void => {
-  samp.callNative("SetPlayerAdmin", "ii", playerid, admin);
+export const SetPlayerAdmin = (playerid: number, admin: boolean): number => {
+  return samp.callNative("SetPlayerAdmin", "ii", playerid, admin);
 };
 
 export const IsPlayerSpawned = (playerid: number): boolean => {
