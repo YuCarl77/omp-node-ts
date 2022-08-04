@@ -1,4 +1,4 @@
-import { GangZoneCb } from "../interfaces/GangZone";
+import { GangZoneCb } from "../../interfaces/GangZone";
 
 export const OnPlayerEnterGangZone = (fn: GangZoneCb) => {
   samp.on("OnPlayerEnterGangZone", fn);
