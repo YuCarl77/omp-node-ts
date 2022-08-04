@@ -1,4 +1,4 @@
-export interface PlayerClassImpl {
+export interface IPlayerClass {
   teamid: number;
   modelid: number;
   spawn_x: number;

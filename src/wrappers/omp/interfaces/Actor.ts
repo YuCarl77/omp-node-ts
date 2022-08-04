@@ -1,11 +1,11 @@
-export interface ActorSpawnImpl {
+export interface IActorSpawn {
   skinid: number;
   fX: number;
   fY: number;
   fZ: number;
   fAngle: number;
 }
-export interface ActorAnimationImpl {
+export interface IActorAnimation {
   animlib: string;
   animname: string;
   fDelta: number;

@@ -1,7 +1,7 @@
 import { rgba } from "samp-node-lib";
 import { decodeFromBuf, encodeToBuf, locales } from "@/utils/i18n";
 import Player from "@/models/player";
-import type { DialogImpl } from "@/utils/Dialog";
+import type { IDialog } from "@/utils/Dialog";
 import config from "@/config";
 import { PlayerEnum } from "@/enums/samp";
 
@@ -38,7 +38,7 @@ export const SendClientMessageToAll = (color: string, msg: string): number => {
 export const ShowPlayerDialog = (
   player: Player,
   id: number,
-  dialog: DialogImpl
+  dialog: IDialog
 ): number => {
   const { charset } = player;
   const { style, caption, info, button1, button2 } = dialog;

@@ -1,4 +1,4 @@
-import { ObjectPosImpl } from "../interfaces/Object";
+import { IObjectPos } from "../interfaces/Object";
 
 export const IsValidPickup = (pickupid: number): boolean => {
   return Boolean(samp.callNative("IsValidPickup", "i", pickupid));
@@ -13,7 +13,7 @@ export const IsPickupStreamedIn = (
   );
 };
 
-export const GetPickupPos = (pickupid: number): ObjectPosImpl => {
+export const GetPickupPos = (pickupid: number): IObjectPos => {
   const [fX, fY, fZ]: number[] = samp.callNative("GetPickupPos", "i", pickupid);
   return { fX, fY, fZ };
 };

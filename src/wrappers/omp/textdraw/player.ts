@@ -1,7 +1,4 @@
-import {
-  TextDrawCommonSizeImpl,
-  TextDrawRotImpl,
-} from "../interfaces/TextDraw";
+import { ITextDrawCommonSize, ITextDrawRot } from "../interfaces/TextDraw";
 
 export const IsValidPlayerTextDraw = (
   playerid: number,
@@ -44,7 +41,7 @@ export const PlayerTextDrawSetPos = (
 export const PlayerTextDrawGetLetterSize = (
   playerid: number,
   textdrawid: number
-): TextDrawCommonSizeImpl => {
+): ITextDrawCommonSize => {
   const [fX = 0.0, fY = 0.0]: number[] = samp.callNative(
     "PlayerTextDrawGetLetterSize",
     "iiFF",
@@ -57,7 +54,7 @@ export const PlayerTextDrawGetLetterSize = (
 export const PlayerTextDrawGetTextSize = (
   playerid: number,
   textdrawid: number
-): TextDrawCommonSizeImpl => {
+): ITextDrawCommonSize => {
   const [fX = 0.0, fY = 0.0]: number[] = samp.callNative(
     "PlayerTextDrawGetTextSize",
     "iiFF",
@@ -70,7 +67,7 @@ export const PlayerTextDrawGetTextSize = (
 export const PlayerTextDrawGetPos = (
   playerid: number,
   textdrawid: number
-): TextDrawCommonSizeImpl => {
+): ITextDrawCommonSize => {
   const [fX = 0.0, fY = 0.0]: number[] = samp.callNative(
     "PlayerTextDrawGetPos",
     "iiFF",
@@ -187,7 +184,7 @@ export const PlayerTextDrawGetPreviewModel = (
 export const PlayerTextDrawGetPreviewRot = (
   playerid: number,
   textdrawid: number
-): TextDrawRotImpl => {
+): ITextDrawRot => {
   const [fRotX = 0.0, fRotY = 0.0, fRotZ = 0.0, fZoom = 0.0]: number[] =
     samp.callNative(
       "PlayerTextDrawGetPreviewRot",

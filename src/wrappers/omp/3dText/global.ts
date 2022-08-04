@@ -1,4 +1,4 @@
-import { AttachedDataImpl, ObjectPosImpl } from "../interfaces/Object";
+import { IAttachedData, IObjectPos } from "../interfaces/Object";
 
 export const IsValid3DTextLabel = (id: number): boolean => {
   return Boolean(samp.callNative("IsValid3DTextLabel", "i", id));
@@ -21,7 +21,7 @@ export const Get3DTextLabelColor = (id: number): string => {
   return samp.callNative("Get3DTextLabelColor", "i", id).toString(16);
 };
 
-export const Get3DTextLabelPos = (id: number): ObjectPosImpl => {
+export const Get3DTextLabelPos = (id: number): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "Get3DTextLabelPos",
     "iFFF",
@@ -57,7 +57,7 @@ export const Get3DTextLabelVirtualWorld = (id: number): number => {
   return samp.callNative("Get3DTextLabelVirtualWorld", "i", id);
 };
 
-export const Get3DTextLabelAttachedData = (id: number): AttachedDataImpl => {
+export const Get3DTextLabelAttachedData = (id: number): IAttachedData => {
   const [attached_playerid = 0, attached_vehicleid = 0]: number[] =
     samp.callNative("Get3DTextLabelAttachedData", "i", id);
   return { attached_playerid, attached_vehicleid };

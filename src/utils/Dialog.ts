@@ -4,7 +4,7 @@ import { ShowPlayerDialog } from "@/utils/helper";
 import { DIALOG_STYLE } from "samp-node-lib";
 import { $t } from "./i18n";
 
-interface DialogImpl {
+interface IDialog {
   style?: DIALOG_STYLE;
   caption?: string;
   info?: string;
@@ -29,10 +29,10 @@ class Dialog {
   private id: number;
   private static CREATED_ID: number = -1;
   private static MAX_DIALOGID: number = 32767;
-  private dialog: DialogImpl;
+  private dialog: IDialog;
 
   constructor(
-    dialog: DialogImpl = {
+    dialog: IDialog = {
       style: DIALOG_STYLE.MSGBOX,
       caption: "",
       info: "",
@@ -109,4 +109,4 @@ class Dialog {
 }
 
 export default Dialog;
-export type { DialogImpl, DialogResponse };
+export type { IDialog, DialogResponse };

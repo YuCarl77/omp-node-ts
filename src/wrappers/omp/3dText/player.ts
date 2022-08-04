@@ -1,4 +1,4 @@
-import { AttachedDataImpl, ObjectPosImpl } from "../interfaces/Object";
+import { IAttachedData, IObjectPos } from "../interfaces/Object";
 
 export const IsValidPlayer3DTextLabel = (
   playerid: number,
@@ -28,7 +28,7 @@ export const GetPlayer3DTextLabelColor = (
 export const GetPlayer3DTextLabelPos = (
   playerid: number,
   id: number
-): ObjectPosImpl => {
+): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayer3DTextLabelPos",
     "iiFFF",
@@ -85,7 +85,7 @@ export const GetPlayer3DTextLabelVirtualW = (
 export const GetPlayer3DTextLabelAttached = (
   playerid: number,
   id: number
-): AttachedDataImpl => {
+): IAttachedData => {
   const [attached_playerid = 0, attached_vehicleid = 0]: number[] =
     samp.callNative("GetPlayer3DTextLabelAttached", "ii", playerid, id);
   return { attached_playerid, attached_vehicleid };

@@ -1,4 +1,4 @@
-import { PlayerClassImpl } from "./interfaces/PlayerClass";
+import { IPlayerClass } from "./interfaces/PlayerClass";
 
 export const GetAvailableClasses = (): number => {
   return samp.callNative("GetAvailableClasses", "");
@@ -6,7 +6,7 @@ export const GetAvailableClasses = (): number => {
 
 // when getting a class through AddPlayerClass(without ex), teamid may be 255.
 // bug: z_angle The value of does not look accurate? not sure of the cause of the problem
-export const GetPlayerClass = (classid: number): Boolean | PlayerClassImpl => {
+export const GetPlayerClass = (classid: number): Boolean | IPlayerClass => {
   if (classid < GetAvailableClasses() || classid > 319) return false;
   const res: number[] = samp.callNative(
     "GetPlayerClass",

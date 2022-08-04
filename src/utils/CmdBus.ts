@@ -4,7 +4,7 @@ import { $t } from "./i18n";
 type EventName = string | string[];
 type EventFunc = (this: Player, ...args: string[]) => any;
 
-interface CmdImpl {
+interface ICmd {
   name: EventName;
   fn: EventFunc;
 }
@@ -12,7 +12,7 @@ interface CmdImpl {
 // This is an event bus for distributing instructions entered by the user.
 // You can bind a single instruction as a string, or you can bind multiple alias instructions as an array string
 class CmdBus {
-  private static eventList: Array<CmdImpl> = [];
+  private static eventList: Array<ICmd> = [];
   private constructor() {}
 
   static on(eventName: EventName, eventFunction: EventFunc) {

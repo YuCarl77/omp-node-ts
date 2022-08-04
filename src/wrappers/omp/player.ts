@@ -1,9 +1,9 @@
-import { BoundsImpl } from "./interfaces/Bounds";
-import { CheckPointImpl, RaceCheckPointImpl } from "./interfaces/CheckPoint";
-import { AttachedObjectImpl } from "./interfaces/Object";
-import { OffsetsImpl } from "./interfaces/Offsets";
-import { PlayerClassImpl } from "./interfaces/PlayerClass";
-import { QuatImpl } from "./interfaces/Quat";
+import { IBounds } from "./interfaces/Bounds";
+import { ICheckPoint, IRaceCheckPoint } from "./interfaces/CheckPoint";
+import { IAttachedObject } from "./interfaces/Object";
+import { IOffsets } from "./interfaces/Offsets";
+import { IPlayerClass } from "./interfaces/PlayerClass";
+import { IQuat } from "./interfaces/Quat";
 
 export const TogglePlayerWidescreen = (
   playerid: number,
@@ -16,7 +16,7 @@ export const IsPlayerWidescreenToggled = (playerid: number): boolean => {
   return Boolean(samp.callNative("IsPlayerWidescreenToggled", "i", playerid));
 };
 
-export const GetSpawnInfo = (playerid: number): PlayerClassImpl => {
+export const GetSpawnInfo = (playerid: number): IPlayerClass => {
   const [
     teamid,
     modelid = 0,
@@ -58,7 +58,7 @@ export const IsPlayerCheckpointActive = (playerid: number): boolean => {
   return Boolean(samp.callNative("IsPlayerCheckpointActive", "i", playerid));
 };
 
-export const GetPlayerCheckpoint = (playerid: number): CheckPointImpl => {
+export const GetPlayerCheckpoint = (playerid: number): ICheckPoint => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0, fSize = 0.0]: number[] = samp.callNative(
     "GetPlayerCheckpoint",
     "iFFFF",
@@ -73,9 +73,7 @@ export const IsPlayerRaceCheckpointActive = (playerid: number): boolean => {
   );
 };
 
-export const GetPlayerRaceCheckpoint = (
-  playerid: number
-): RaceCheckPointImpl => {
+export const GetPlayerRaceCheckpoint = (playerid: number): IRaceCheckPoint => {
   const [
     fX = 0.0,
     fY = 0.0,
@@ -92,7 +90,7 @@ export const GetPlayerRaceCheckpoint = (
   return { fX, fY, fZ, fNextX, fNextY, fNextZ, fSize };
 };
 
-export const GetPlayerWorldBounds = (playerid: number): BoundsImpl => {
+export const GetPlayerWorldBounds = (playerid: number): IBounds => {
   const [x_max = 0.0, x_min = 0.0, y_max = 0.0, y_min = 0.0]: number[] =
     samp.callNative("GetPlayerWorldBounds", "iFFFF", playerid);
   return { x_max, x_min, y_max, y_min };
@@ -122,13 +120,13 @@ export const GetPlayerZAim = (playerid: number): number => {
   return samp.callNativeFloat("GetPlayerZAim", "i", playerid);
 };
 
-export const GetPlayerSurfingOffsets = (playerid: number): OffsetsImpl => {
+export const GetPlayerSurfingOffsets = (playerid: number): IOffsets => {
   const [fOffsetX = 0.0, fOffsetY = 0.0, fOffsetZ = 0.0]: number[] =
     samp.callNative("GetPlayerSurfingOffsets", "iFFF", playerid);
   return { fOffsetX, fOffsetY, fOffsetZ };
 };
 
-export const GetPlayerRotationQuat = (playerid: number): QuatImpl => {
+export const GetPlayerRotationQuat = (playerid: number): IQuat => {
   const [w = 0.0, x = 0.0, y = 0.0, z = 0.0]: number[] = samp.callNative(
     "GetPlayerRotationQuat",
     "iFFFF",
@@ -195,7 +193,7 @@ export const GetPlayerBuildingsRemoved = (playerid: number): number => {
 export const GetPlayerAttachedObject = (
   playerid: number,
   index: number
-): AttachedObjectImpl => {
+): IAttachedObject => {
   const [
     modelid = 0,
     bone = 0,

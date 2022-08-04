@@ -1,9 +1,9 @@
 import {
-  AttachedDataImpl,
-  MaterialImpl,
-  MaterialTextImpl,
-  ObjectPosImpl,
-  ObjectRotPosImpl,
+  IAttachedData,
+  IMaterial,
+  IMaterialText,
+  IObjectPos,
+  IObjectRotPos,
 } from "../interfaces/Object";
 
 export const GetObjectDrawDistance = (objectid: number): number => {
@@ -14,7 +14,7 @@ export const GetObjectMoveSpeed = (objectid: number): number => {
   return samp.callNativeFloat("GetObjectMoveSpeed", "i", objectid);
 };
 
-export const GetObjectTarget = (objectid: number): ObjectPosImpl => {
+export const GetObjectTarget = (objectid: number): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetObjectTarget",
     "i",
@@ -23,7 +23,7 @@ export const GetObjectTarget = (objectid: number): ObjectPosImpl => {
   return { fX, fY, fZ };
 };
 
-export const GetObjectMovingTargetPos = (objectid: number): ObjectPosImpl => {
+export const GetObjectMovingTargetPos = (objectid: number): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetObjectMovingTargetPos",
     "i",
@@ -32,7 +32,7 @@ export const GetObjectMovingTargetPos = (objectid: number): ObjectPosImpl => {
   return { fX, fY, fZ };
 };
 
-export const GetObjectMovingTargetRot = (objectid: number): ObjectPosImpl => {
+export const GetObjectMovingTargetRot = (objectid: number): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetObjectMovingTargetRot",
     "i",
@@ -41,7 +41,7 @@ export const GetObjectMovingTargetRot = (objectid: number): ObjectPosImpl => {
   return { fX, fY, fZ };
 };
 
-export const GetObjectAttachedData = (objectid: number): AttachedDataImpl => {
+export const GetObjectAttachedData = (objectid: number): IAttachedData => {
   const [
     attached_vehicleid = 0,
     attached_objectid = 0,
@@ -50,7 +50,7 @@ export const GetObjectAttachedData = (objectid: number): AttachedDataImpl => {
   return { attached_vehicleid, attached_objectid, attached_playerid };
 };
 
-export const GetObjectAttachedOffset = (objectid: number): ObjectRotPosImpl => {
+export const GetObjectAttachedOffset = (objectid: number): IObjectRotPos => {
   const [
     fX = 0.0,
     fY = 0.0,
@@ -79,7 +79,7 @@ export const IsObjectMaterialSlotUsed = (
 export const GetObjectMaterial = (
   objectid: number,
   materialindex: number
-): MaterialImpl => {
+): IMaterial => {
   let [modelid = 0, txdname, texturename, materialcolor = 0]: [
     number,
     string,
@@ -100,7 +100,7 @@ export const GetObjectMaterial = (
 export const GetObjectMaterialText = (
   objectid: number,
   materialindex: number
-): MaterialTextImpl => {
+): IMaterialText => {
   let [
     text,
     materialsize = 0,

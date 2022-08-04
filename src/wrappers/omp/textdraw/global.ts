@@ -1,7 +1,4 @@
-import {
-  TextDrawCommonSizeImpl,
-  TextDrawRotImpl,
-} from "../interfaces/TextDraw";
+import { ITextDrawCommonSize, ITextDrawRot } from "../interfaces/TextDraw";
 
 export const IsValidTextDraw = (textdrawid: number): boolean => {
   return Boolean(samp.callNative("IsValidTextDraw", "i", textdrawid));
@@ -31,7 +28,7 @@ export const TextDrawSetPos = (
 
 export const TextDrawGetLetterSize = (
   textdrawid: number
-): TextDrawCommonSizeImpl => {
+): ITextDrawCommonSize => {
   const [fX = 0.0, fY = 0.0]: number[] = samp.callNative(
     "TextDrawGetLetterSize",
     "iFF",
@@ -42,7 +39,7 @@ export const TextDrawGetLetterSize = (
 
 export const TextDrawGetTextSize = (
   textdrawid: number
-): TextDrawCommonSizeImpl => {
+): ITextDrawCommonSize => {
   const [fX = 0.0, fY = 0.0]: number[] = samp.callNative(
     "TextDrawGetTextSize",
     "iFF",
@@ -51,7 +48,7 @@ export const TextDrawGetTextSize = (
   return { fX, fY };
 };
 
-export const TextDrawGetPos = (textdrawid: number): TextDrawCommonSizeImpl => {
+export const TextDrawGetPos = (textdrawid: number): ITextDrawCommonSize => {
   const [fX = 0.0, fY = 0.0]: number[] = samp.callNative(
     "TextDrawGetPos",
     "iFF",
@@ -106,7 +103,7 @@ export const TextDrawGetPreviewModel = (textdrawid: number): number => {
   return samp.callNative("TextDrawGetPreviewModel", "i", textdrawid);
 };
 
-export const TextDrawGetPreviewRot = (textdrawid: number): TextDrawRotImpl => {
+export const TextDrawGetPreviewRot = (textdrawid: number): ITextDrawRot => {
   const [fRotX = 0.0, fRotY = 0.0, fRotZ = 0.0, fZoom = 0.0]: number[] =
     samp.callNative("TextDrawGetPreviewRot", "iFFFF", textdrawid);
   return { fRotX, fRotY, fRotZ, fZoom };

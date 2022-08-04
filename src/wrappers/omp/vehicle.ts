@@ -1,10 +1,6 @@
-import {
-  VehColorImpl,
-  VehMatrixImpl,
-  VehSpawnInfoImpl,
-} from "./interfaces/Vehicle";
+import { IVehColor, IVehMatrix, IVehSpawnInfo } from "./interfaces/Vehicle";
 
-export const GetVehicleSpawnInfo = (vehicleid: number): VehSpawnInfoImpl => {
+export const GetVehicleSpawnInfo = (vehicleid: number): IVehSpawnInfo => {
   const [fX = 0, fY = 0, fZ = 0, fRot = 0, color1 = 0, color2 = 0]: number[] =
     samp.callNative("GetVehicleSpawnInfo", "iFFFFII", vehicleid);
   return { fX, fY, fZ, fRot, color1, color2 };
@@ -38,7 +34,7 @@ export const SetVehicleSpawnInfo = (
   );
 };
 
-export const GetVehicleColor = (vehicleid: number): VehColorImpl => {
+export const GetVehicleColor = (vehicleid: number): IVehColor => {
   const [color1 = 0, color2 = 0]: number[] = samp.callNative(
     "GetVehicleColor",
     "i",
@@ -133,7 +129,7 @@ export const GetVehicleTrainSpeed = (vehicleid: number): number => {
   return samp.callNativeFloat("GetVehicleTrainSpeed", "i", vehicleid);
 };
 
-export const GetVehicleMatrix = (vehicleid: number): VehMatrixImpl => {
+export const GetVehicleMatrix = (vehicleid: number): IVehMatrix => {
   const [
     rightX = 0,
     rightY = 0,

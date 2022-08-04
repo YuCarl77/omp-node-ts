@@ -1,11 +1,11 @@
-export interface CheckPointImpl {
+export interface ICheckPoint {
   fX: number;
   fY: number;
   fZ: number;
   fSize: number;
 }
 
-export interface RaceCheckPointImpl extends CheckPointImpl {
+export interface IRaceCheckPoint extends ICheckPoint {
   fNextX: number;
   fNextY: number;
   fNextZ: number;

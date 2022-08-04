@@ -1,15 +1,15 @@
-export interface ObjectPosImpl {
+export interface IObjectPos {
   fX: number;
   fY: number;
   fZ: number;
 }
 
-export interface ObjectRotPosImpl extends ObjectPosImpl {
+export interface IObjectRotPos extends IObjectPos {
   fRotX: number;
   fRotY: number;
   fRotZ: number;
 }
-export interface AttachedObjectImpl extends ObjectRotPosImpl {
+export interface IAttachedObject extends IObjectRotPos {
   modelid: number;
   bone: number;
   fScaleX: number;
@@ -19,14 +19,14 @@ export interface AttachedObjectImpl extends ObjectRotPosImpl {
   materialcolor2: number;
 }
 
-export interface MaterialImpl {
+export interface IMaterial {
   modelid: number;
   txdname: string;
   texturename: string;
   materialcolor: string;
 }
 
-export interface MaterialTextImpl {
+export interface IMaterialText {
   text: string;
   materialsize: number;
   fontface: string;
@@ -37,7 +37,7 @@ export interface MaterialTextImpl {
   textalignment: number;
 }
 
-export interface AttachedDataImpl {
+export interface IAttachedData {
   attached_vehicleid: number;
   attached_objectid?: number;
   attached_playerid: number;

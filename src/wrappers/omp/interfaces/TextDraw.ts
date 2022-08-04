@@ -1,9 +1,9 @@
-export interface TextDrawCommonSizeImpl {
+export interface ITextDrawCommonSize {
   fX: number;
   fY: number;
 }
 
-export interface TextDrawRotImpl {
+export interface ITextDrawRot {
   fRotX: number;
   fRotY: number;
   fRotZ: number;

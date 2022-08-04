@@ -1,4 +1,4 @@
-import { ActorAnimationImpl, ActorSpawnImpl } from "./interfaces/Actor";
+import { IActorAnimation, IActorSpawn } from "./interfaces/Actor";
 
 export const GetActorSkin = (actorid: number): number => {
   return samp.callNative("GetActorSkin", "i", actorid);
@@ -8,13 +8,13 @@ export const SetActorSkin = (actorid: number, model: number): number => {
   return samp.callNative("SetActorSkin", "ii", actorid, model);
 };
 
-export const GetActorSpawnInfo = (actorid: number): ActorSpawnImpl => {
+export const GetActorSpawnInfo = (actorid: number): IActorSpawn => {
   const [skinid = 0, fX = 0, fY = 0, fZ = 0, fAngle = 0]: number[] =
     samp.callNative("GetActorSpawnInfo", "iIFFFF", actorid);
   return { skinid, fX, fY, fZ, fAngle };
 };
 
-export const GetActorAnimation = (actorid: number): ActorAnimationImpl => {
+export const GetActorAnimation = (actorid: number): IActorAnimation => {
   const [
     animlib,
     animname,

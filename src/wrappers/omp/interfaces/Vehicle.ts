@@ -1,16 +1,16 @@
-export interface VehColorImpl {
+export interface IVehColor {
   color1: number;
   color2: number;
 }
 
-export interface VehSpawnInfoImpl extends VehColorImpl {
+export interface IVehSpawnInfo extends IVehColor {
   fX: number;
   fY: number;
   fZ: number;
   fRot: number;
 }
 
-export interface VehMatrixImpl {
+export interface IVehMatrix {
   rightX: number;
   rightY: number;
   rightZ: number;

@@ -1,9 +1,9 @@
 import {
-  AttachedDataImpl,
-  MaterialImpl,
-  MaterialTextImpl,
-  ObjectPosImpl,
-  ObjectRotPosImpl,
+  IAttachedData,
+  IMaterial,
+  IMaterialText,
+  IObjectPos,
+  IObjectRotPos,
 } from "../interfaces/Object";
 
 export const GetPlayerObjectDrawDistance = (
@@ -47,7 +47,7 @@ export const GetPlayerObjectMoveSpeed = (
 export const GetPlayerObjectTarget = (
   playerid: number,
   objectid: number
-): ObjectPosImpl => {
+): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayerObjectTarget",
     "ii",
@@ -60,7 +60,7 @@ export const GetPlayerObjectTarget = (
 export const GetPlayerObjectMovingTargetPos = (
   playerid: number,
   objectid: number
-): ObjectPosImpl => {
+): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayerObjectMovingTargetPos",
     "ii",
@@ -73,7 +73,7 @@ export const GetPlayerObjectMovingTargetPos = (
 export const GetPlayerObjectMovingTargetRot = (
   playerid: number,
   objectid: number
-): ObjectPosImpl => {
+): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayerObjectMovingTargetRot",
     "ii",
@@ -86,7 +86,7 @@ export const GetPlayerObjectMovingTargetRot = (
 export const GetPlayerObjectAttachedData = (
   playerid: number,
   objectid: number
-): AttachedDataImpl => {
+): IAttachedData => {
   const [
     attached_vehicleid = 0,
     attached_objectid = 0,
@@ -103,7 +103,7 @@ export const GetPlayerObjectAttachedData = (
 export const GetPlayerObjectAttachedOffset = (
   playerid: number,
   objectid: number
-): ObjectRotPosImpl => {
+): IObjectRotPos => {
   const [
     fX = 0.0,
     fY = 0.0,
@@ -153,7 +153,7 @@ export const GetPlayerObjectMaterial = (
   playerid: number,
   objectid: number,
   materialindex: number
-): MaterialImpl => {
+): IMaterial => {
   let [modelid = 0, txdname, texturename, materialcolor = 0]: [
     number,
     string,
@@ -176,7 +176,7 @@ export const GetPlayerObjectMaterialText = (
   playerid: number,
   objectid: number,
   materialindex: number
-): MaterialTextImpl => {
+): IMaterialText => {
   let [
     text,
     materialsize = 0,
