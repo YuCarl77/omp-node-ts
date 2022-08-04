@@ -39,6 +39,6 @@ export interface MaterialTextImpl {
 
 export interface AttachedDataImpl {
   attached_vehicleid: number;
-  attached_objectid: number;
+  attached_objectid?: number;
   attached_playerid: number;
 }
