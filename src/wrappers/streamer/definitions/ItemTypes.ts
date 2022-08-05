@@ -8,4 +8,14 @@ enum StreamerItemTypes {
   AREA,
   ACTOR,
 }
+export type StreamerItemTypeTuple = [
+  StreamerItemTypes,
+  StreamerItemTypes,
+  StreamerItemTypes,
+  StreamerItemTypes,
+  StreamerItemTypes,
+  StreamerItemTypes,
+  StreamerItemTypes,
+  StreamerItemTypes
+];
 export default StreamerItemTypes;
