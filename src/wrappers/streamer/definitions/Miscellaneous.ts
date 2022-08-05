@@ -1,7 +1,7 @@
-enum Miscellaneous {
-  STREAMER_MAX_TYPES = 8,
-  STREAMER_MAX_AREA_TYPES = 5,
-  STREAMER_MAX_OBJECT_TYPES = 3,
-  INVALID_STREAMER_ID = 0,
+enum StreamerMiscellaneous {
+  MAX_TYPES = 8,
+  MAX_AREA_TYPES = 5,
+  MAX_OBJECT_TYPES = 3,
+  INVALID_ID = 0,
 }
-export default Miscellaneous;
+export default StreamerMiscellaneous;

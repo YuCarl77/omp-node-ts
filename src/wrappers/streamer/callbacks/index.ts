@@ -1,4 +1,4 @@
-import ItemTypes from "../definitions/ItemTypes";
+import StreamerItemTypes from "../definitions/ItemTypes";
 
 export const OnDynamicObjectMoved = (fn: (objectid: number) => void): void => {
   samp.on("OnDynamicObjectMoved", fn);
@@ -121,7 +121,7 @@ export const OnDynamicActorStreamOut = (
 // Streamer_OnItemStreamIn must be enabled using Streamer_ToggleItemCallbacks.
 // Streamer_OnItemStreamIn必须使用Streamer_ToggleItemCallbacks启用。
 export const Streamer_OnItemStreamIn = (
-  fn: (type: ItemTypes, id: number, forplayerid: number) => void
+  fn: (type: StreamerItemTypes, id: number, forplayerid: number) => void
 ): void => {
   samp.on("Streamer_OnItemStreamIn", fn);
 };
@@ -129,7 +129,7 @@ export const Streamer_OnItemStreamIn = (
 // Streamer_OnItemStreamOut must be enabled using Streamer_ToggleItemCallbacks.
 // Streamer_OnItemStreamOut必须使用Streamer_ToggleItemCallbacks启用。
 export const Streamer_OnItemStreamOut = (
-  fn: (type: ItemTypes, id: number, forplayerid: number) => void
+  fn: (type: StreamerItemTypes, id: number, forplayerid: number) => void
 ): void => {
   samp.on("Streamer_OnItemStreamOut", fn);
 };

@@ -1,6 +1,6 @@
-enum ObjectTypes {
-  STREAMER_OBJECT_TYPE_GLOBAL,
-  STREAMER_OBJECT_TYPE_PLAYER,
-  STREAMER_OBJECT_TYPE_DYNAMIC,
+enum StreamerObjectTypes {
+  GLOBAL,
+  PLAYER,
+  DYNAMIC,
 }
-export default ObjectTypes;
+export default StreamerObjectTypes;

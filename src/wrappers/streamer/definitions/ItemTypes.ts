@@ -1,11 +1,11 @@
-enum ItemTypes {
-  STREAMER_TYPE_OBJECT,
-  STREAMER_TYPE_PICKUP,
-  STREAMER_TYPE_CP,
-  STREAMER_TYPE_RACE_CP,
-  STREAMER_TYPE_MAP_ICON,
-  STREAMER_TYPE_3D_TEXT_LABEL,
-  STREAMER_TYPE_AREA,
-  STREAMER_TYPE_ACTOR,
+enum StreamerItemTypes {
+  OBJECT,
+  PICKUP,
+  CP,
+  RACE_CP,
+  MAP_ICON,
+  TEXT_3D_LABEL,
+  AREA,
+  ACTOR,
 }
-export default ItemTypes;
+export default StreamerItemTypes;
