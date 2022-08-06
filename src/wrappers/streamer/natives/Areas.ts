@@ -375,7 +375,7 @@ export const AttachDynamicAreaToVehicle = (
   offsetz: number = 0.0
 ): number => {
   return samp.callNative(
-    "AttachDynamicAreaToPlayer",
+    "AttachDynamicAreaToVehicle",
     "iifff",
     areaid,
     vehicleid,
