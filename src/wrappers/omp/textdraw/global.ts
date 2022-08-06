@@ -57,18 +57,16 @@ export const TextDrawGetPos = (textdrawid: number): ITextDrawCommonSize => {
   return { fX, fY };
 };
 
-export const TextDrawGetColor = (textdrawid: number): string => {
-  return samp.callNative("TextDrawGetColor", "i", textdrawid).toString(16);
+export const TextDrawGetColor = (textdrawid: number): number => {
+  return samp.callNative("TextDrawGetColor", "i", textdrawid);
 };
 
-export const TextDrawGetBoxColor = (textdrawid: number): string => {
-  return samp.callNative("TextDrawGetBoxColor", "i", textdrawid).toString(16);
+export const TextDrawGetBoxColor = (textdrawid: number): number => {
+  return samp.callNative("TextDrawGetBoxColor", "i", textdrawid);
 };
 
-export const TextDrawGetBackgroundColor = (textdrawid: number): string => {
-  return samp
-    .callNative("TextDrawGetBackgroundColor", "i", textdrawid)
-    .toString(16);
+export const TextDrawGetBackgroundColor = (textdrawid: number): number => {
+  return samp.callNative("TextDrawGetBackgroundColor", "i", textdrawid);
 };
 
 export const TextDrawGetShadow = (textdrawid: number): number => {

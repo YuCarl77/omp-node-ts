@@ -23,7 +23,7 @@ export interface IMaterial {
   modelid: number;
   txdname: string;
   texturename: string;
-  materialcolor: string;
+  materialcolor: number;
 }
 
 export interface IMaterialText {
@@ -32,8 +32,8 @@ export interface IMaterialText {
   fontface: string;
   fontsize: number;
   bold: number;
-  fontcolor: string;
-  backcolor: string;
+  fontcolor: number;
+  backcolor: number;
   textalignment: number;
 }
 

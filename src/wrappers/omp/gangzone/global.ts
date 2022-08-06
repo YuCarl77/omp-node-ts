@@ -23,19 +23,20 @@ export const IsGangZoneVisibleForPlayer = (
 export const GangZoneGetColorForPlayer = (
   playerid: number,
   zoneid: number
-): string => {
-  return samp
-    .callNative("GangZoneGetColorForPlayer", "ii", playerid, zoneid)
-    .toString(16);
+): number => {
+  return samp.callNative("GangZoneGetColorForPlayer", "ii", playerid, zoneid);
 };
 
 export const GangZoneGetFlashColorForPlayer = (
   playerid: number,
   zoneid: number
-): string => {
-  return samp
-    .callNative("GangZoneGetFlashColorForPlayer", "ii", playerid, zoneid)
-    .toString(16);
+): number => {
+  return samp.callNative(
+    "GangZoneGetFlashColorForPlayer",
+    "ii",
+    playerid,
+    zoneid
+  );
 };
 
 export const IsGangZoneFlashingForPlayer = (

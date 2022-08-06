@@ -80,28 +80,32 @@ export const PlayerTextDrawGetPos = (
 export const PlayerTextDrawGetColor = (
   playerid: number,
   textdrawid: number
-): string => {
-  return samp
-    .callNative("PlayerTextDrawGetColor", "ii", playerid, textdrawid)
-    .toString(16);
+): number => {
+  return samp.callNative("PlayerTextDrawGetColor", "ii", playerid, textdrawid);
 };
 
 export const PlayerTextDrawGetBoxColor = (
   playerid: number,
   textdrawid: number
-): string => {
-  return samp
-    .callNative("PlayerTextDrawGetBoxColor", "ii", playerid, textdrawid)
-    .toString(16);
+): number => {
+  return samp.callNative(
+    "PlayerTextDrawGetBoxColor",
+    "ii",
+    playerid,
+    textdrawid
+  );
 };
 
 export const PlayerTextDrawGetBackgroundCol = (
   playerid: number,
   textdrawid: number
-): string => {
-  return samp
-    .callNative("PlayerTextDrawGetBackgroundCol", "ii", playerid, textdrawid)
-    .toString(16);
+): number => {
+  return samp.callNative(
+    "PlayerTextDrawGetBackgroundCol",
+    "ii",
+    playerid,
+    textdrawid
+  );
 };
 
 export const PlayerTextDrawGetShadow = (

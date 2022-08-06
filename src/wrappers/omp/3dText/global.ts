@@ -17,8 +17,8 @@ export const Get3DTextLabelText = (id: number): string => {
   return samp.callNative("Get3DTextLabelText", "iSi", id, 144);
 };
 
-export const Get3DTextLabelColor = (id: number): string => {
-  return samp.callNative("Get3DTextLabelColor", "i", id).toString(16);
+export const Get3DTextLabelColor = (id: number): number => {
+  return samp.callNative("Get3DTextLabelColor", "i", id);
 };
 
 export const Get3DTextLabelPos = (id: number): IObjectPos => {

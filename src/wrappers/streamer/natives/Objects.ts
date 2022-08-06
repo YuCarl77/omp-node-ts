@@ -237,7 +237,7 @@ export const GetDynamicObjectMaterial = (
   txdname: string,
   texturename: string
 ) => {
-  let [modelid, materialcolor]: [number, string | number] = samp.callNative(
+  const [modelid, materialcolor]: [number, string | number] = samp.callNative(
     "GetDynamicObjectMaterial",
     "iiIssIii",
     objectid,
@@ -247,7 +247,6 @@ export const GetDynamicObjectMaterial = (
     64,
     64
   );
-  materialcolor = materialcolor.toString(16);
   return { modelid, materialcolor };
 };
 

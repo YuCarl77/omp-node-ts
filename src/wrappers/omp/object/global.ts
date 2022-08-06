@@ -80,11 +80,11 @@ export const GetObjectMaterial = (
   objectid: number,
   materialindex: number
 ): IMaterial => {
-  let [modelid = 0, txdname, texturename, materialcolor = 0]: [
+  const [modelid = 0, txdname, texturename, materialcolor = 0]: [
     number,
     string,
     string,
-    number | string
+    number
   ] = samp.callNative(
     "GetObjectMaterial",
     "iiISiSiI",
@@ -93,7 +93,6 @@ export const GetObjectMaterial = (
     64,
     64
   );
-  materialcolor = materialcolor.toString(16);
   return { modelid, txdname, texturename, materialcolor };
 };
 
@@ -110,25 +109,15 @@ export const GetObjectMaterialText = (
     fontcolor = 0,
     backcolor = 0,
     textalignment = 0,
-  ]: [
-    string,
-    number,
-    string,
-    number,
-    number,
-    number | string,
-    number | string,
-    number
-  ] = samp.callNative(
-    "GetObjectMaterialText",
-    "iiSiISiIIIII",
-    objectid,
-    materialindex,
-    2048,
-    32
-  );
-  fontcolor = fontcolor.toString(16);
-  backcolor = backcolor.toString(16);
+  ]: [string, number, string, number, number, number, number, number] =
+    samp.callNative(
+      "GetObjectMaterialText",
+      "iiSiISiIIIII",
+      objectid,
+      materialindex,
+      2048,
+      32
+    );
   return {
     text,
     materialsize,

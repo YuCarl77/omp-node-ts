@@ -19,10 +19,8 @@ export const GetPlayer3DTextLabelText = (
 export const GetPlayer3DTextLabelColor = (
   playerid: number,
   id: number
-): string => {
-  return samp
-    .callNative("GetPlayer3DTextLabelColor", "ii", playerid, id)
-    .toString(16);
+): number => {
+  return samp.callNative("GetPlayer3DTextLabelColor", "ii", playerid, id);
 };
 
 export const GetPlayer3DTextLabelPos = (
