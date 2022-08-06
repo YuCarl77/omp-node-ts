@@ -6,11 +6,9 @@ A very simple [omp server](https://github.com/openmultiplayer/server-beta) boile
 
 > **The necessary files were removed** to ensure that the latest version is always used and that the repository file size is reduced.
 
-1. Download [omp server](https://github.com/openmultiplayer/server-beta/releases) and extract it to the root directory, i.e. `omp-server[.exe]` and `components` folder
-
-2. Download [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `samp-node.so/dll` in the root folder and `samp-node.so/dll` in the plugins folder.
-
-3. As above, download and install the [streamer plugin](https://github.com/samp-incognito/samp-streamer-plugin/releases).
+1. Download the [omp server](https://github.com/openmultiplayer/server-beta/releases), extract the `omp-server[.exe]` and `components` folder to the root directory
+2. Download the [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `libnode.so/dll` in the root directory and `samp-node.so/dll` in the plugins folder
+3. Download the [streamer plugin](https://github.com/samp-incognito/samp-streamer-plugin/releases), put streamer.so/dll in the plugins folder
 4. Change `rcon.password` in `config.json` to other values
 5. `pnpm install` (install dependencies)
 6. `pnpm dev` (start listening compile & auto-restart server)
@@ -21,7 +19,7 @@ A very simple [omp server](https://github.com/openmultiplayer/server-beta) boile
 - Fully embrace the powerful node.js ecosystem.
 - Better data types and maintainability.
 - Convenient asynchronous operations.
-- Internationalization support for different character sets depending on the player.
+- Internationalization support for different charsets depending on the player.
 - Reduce a lot of original code and function dependencies.
 
 ## Notice
