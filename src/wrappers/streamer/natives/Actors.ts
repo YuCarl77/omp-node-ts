@@ -6,7 +6,7 @@ export const CreateDynamicActor = (
   y: number,
   z: number,
   r: number,
-  invulnerable: number = 1,
+  invulnerable: boolean = true,
   health: number = 100.0,
   worldid: number = -1,
   interiorid: number = -1,

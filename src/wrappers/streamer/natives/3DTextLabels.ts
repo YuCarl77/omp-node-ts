@@ -9,7 +9,7 @@ export const CreateDynamic3DTextLabel = (
   drawdistance: number,
   attachedplayer: number = 0xffff,
   attachedvehicle: number = 0xffff,
-  testlos: number = 0,
+  testlos: boolean = false,
   worldid: number = -1,
   interiorid: number = -1,
   playerid: number = -1,
