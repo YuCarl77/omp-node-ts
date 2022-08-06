@@ -50,7 +50,7 @@ export const GetPlayerObjectTarget = (
 ): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayerObjectTarget",
-    "ii",
+    "iiFFF",
     playerid,
     objectid
   );
@@ -63,7 +63,7 @@ export const GetPlayerObjectMovingTargetPos = (
 ): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayerObjectMovingTargetPos",
-    "ii",
+    "iiFFF",
     playerid,
     objectid
   );
@@ -76,7 +76,7 @@ export const GetPlayerObjectMovingTargetRot = (
 ): IObjectPos => {
   const [fX = 0.0, fY = 0.0, fZ = 0.0]: number[] = samp.callNative(
     "GetPlayerObjectMovingTargetRot",
-    "ii",
+    "iiFFF",
     playerid,
     objectid
   );
@@ -93,7 +93,7 @@ export const GetPlayerObjectAttachedData = (
     attached_playerid = 0,
   ]: number[] = samp.callNative(
     "GetPlayerObjectAttachedData",
-    "ii",
+    "iiIII",
     playerid,
     objectid
   );
@@ -113,7 +113,7 @@ export const GetPlayerObjectAttachedOffset = (
     fRotZ = 0.0,
   ]: number[] = samp.callNative(
     "GetPlayerObjectAttachedOffset",
-    "ii",
+    "iiFFFFFF",
     playerid,
     objectid
   );

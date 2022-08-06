@@ -14,7 +14,11 @@ export const IsPickupStreamedIn = (
 };
 
 export const GetPickupPos = (pickupid: number): IObjectPos => {
-  const [fX, fY, fZ]: number[] = samp.callNative("GetPickupPos", "i", pickupid);
+  const [fX, fY, fZ]: number[] = samp.callNative(
+    "GetPickupPos",
+    "iFFF",
+    pickupid
+  );
   return { fX, fY, fZ };
 };
 
