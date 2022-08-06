@@ -17,6 +17,7 @@ specifiers:
   nodemon: ^2.0.19
   npm-run-all: ^4.1.5
   omp-wrapper: ^0.0.5
+  omp-wrapper-streamer: ^0.0.1
   rimraf: ^3.0.2
   rollup: ^2.77.0
   rollup-plugin-node-externals: ^4.1.1
@@ -27,6 +28,7 @@ specifiers:
 
 dependencies:
   omp-wrapper: 0.0.5
+  omp-wrapper-streamer: 0.0.1
   samp-node-lib: 1.1.5
 
 devDependencies:
@@ -1395,6 +1397,10 @@ packages:
       has-symbols: 1.0.3
       object-keys: 1.1.1
     dev: true
+
+  /omp-wrapper-streamer/0.0.1:
+    resolution: {integrity: sha512-dYkB3VQhOpognCc4oulS0ljIj6FtaoLJkxFRG72GQ4qgVFI2vhoGkAs390UVnSQBejj1NqSzzxxUOIxdyUP7LQ==}
+    dev: false
 
   /omp-wrapper/0.0.5:
     resolution: {integrity: sha512-jG51EQZ5mCFSSJzLNslRfRahaUUknJLRFfOHMsLB9Oe1XcYUa/g389Ft9I+Ig8fiKPIXKflai2jI+wJVLOW6MQ==}
