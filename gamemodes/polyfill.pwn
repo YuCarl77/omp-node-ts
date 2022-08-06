@@ -5,6 +5,7 @@
 
 #include <a_samp>
 #include <omp>
+#include <streamer>
 #include <samp-node>
 
 main() {}

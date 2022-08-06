@@ -67,7 +67,7 @@
   },
   "password": "",
   "pawn": {
-    "legacy_plugins": ["samp-node"],
+    "legacy_plugins": ["streamer", "samp-node"],
     "main_scripts": ["polyfill 1"],
     "side_scripts": []
   },
@@ -75,7 +75,7 @@
   "rcon": {
     "allow_teleport": false,
     "enable": false,
-    "password": "xdlh0m30#gswwpb8"
+    "password": "changeme"
   },
   "sleep": 5,
   "website": "open.mp"

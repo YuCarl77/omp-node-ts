@@ -6,12 +6,14 @@ A very simple [omp server](https://github.com/openmultiplayer/server-beta) boile
 
 > **The necessary files were removed** to ensure that the latest version is always used and that the repository file size is reduced.
 
-1. download [omp server](https://github.com/openmultiplayer/server-beta/releases) and extract it to the root directory, i.e. `omp-server[.exe]` and `components` folder
+1. Download [omp server](https://github.com/openmultiplayer/server-beta/releases) and extract it to the root directory, i.e. `omp-server[.exe]` and `components` folder
 
-2. download [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `samp-node.so/dll` in the root folder and `samp-node.so/dll` in the plugins folder.
+2. Download [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `samp-node.so/dll` in the root folder and `samp-node.so/dll` in the plugins folder.
 
-3. `pnpm install` (install dependencies)
-4. `pnpm dev` (start listening compile & auto-restart server)
+3. As above, download and install the [streamer plugin](https://github.com/samp-incognito/samp-streamer-plugin/releases).
+4. Change `rcon.password` in `config.json` to other values
+5. `pnpm install` (install dependencies)
+6. `pnpm dev` (start listening compile & auto-restart server)
 
 ## Advantages
 
