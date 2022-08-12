@@ -31,8 +31,8 @@
     "url": "https://github.com/YuCarl77/omp-node-ts/issues"
   },
   "dependencies": {
-    "omp-wrapper": "^0.0.6",
-    "omp-wrapper-streamer": "^0.0.1",
+    "omp-wrapper": "latest",
+    "omp-wrapper-streamer": "latest",
     "samp-node-lib": "^1.1.5"
   },
   "devDependencies": {
