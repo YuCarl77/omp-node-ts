@@ -1,5 +1,6 @@
+// Here are some internationalized functions that are encapsulated and used to override the original functions
 import { rgba } from "samp-node-lib";
-import { decodeFromBuf, encodeToBuf, locales } from "@/utils/i18n";
+import { decodeFromBuf, encodeToBuf } from "@/utils/i18n";
 import Player from "@/models/player";
 import type { IDialog } from "@/utils/Dialog";
 import config from "@/config";
@@ -76,11 +77,14 @@ samp.registerEvent("OnPlayerCommandTextI18n", "iai");
 export const OnPlayerCommandText = (
   fn: (player: Player, cmdtext: string) => void
 ) => {
-  samp.on("OnPlayerCommandTextI18n", (playerid: number, buf: number[]) => {
-    const p = Player.Players.get(playerid);
-    if (p) fn(p, decodeFromBuf(buf, p.charset));
-    return 1;
-  });
+  samp.on(
+    "OnPlayerCommandTextI18n",
+    (playerid: number, buf: number[]): number => {
+      const p = Player.Players.get(playerid);
+      if (p) fn(p, decodeFromBuf(buf, p.charset));
+      return 1;
+    }
+  );
 };
 
 samp.registerEvent("OnDialogResponseI18n", "iiiiai");

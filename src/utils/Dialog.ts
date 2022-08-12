@@ -1,6 +1,7 @@
 import { delDialogRecord, waitingDialogs } from "@/controllers/dialog";
 import Player from "@/models/player";
 import { ShowPlayerDialog } from "@/utils/helper";
+import { HidePlayerDialog } from "omp-wrapper";
 import { DIALOG_STYLE } from "samp-node-lib";
 import { $t } from "./i18n";
 
@@ -97,14 +98,7 @@ class Dialog {
 
   public static close(player: Player) {
     delDialogRecord(player);
-    // omp recommend use HidePlayerDialog, need wrappers
-    ShowPlayerDialog(player, -1, {
-      style: DIALOG_STYLE.MSGBOX,
-      caption: "",
-      info: "",
-      button1: "",
-      button2: "",
-    });
+    HidePlayerDialog(player.id);
   }
 }
 

@@ -4,7 +4,7 @@ import Player from "@/models/player";
 import { OnPlayerCommandText, SendClientMessage } from "@/utils/helper";
 import { $t } from "@/utils/i18n";
 
-OnPlayerCommandText((p: Player, cmdtext: string) => {
+OnPlayerCommandText((p: Player, cmdtext: string): void => {
   const regCmdtext = cmdtext.match(/[^/\s]+/gi);
   if (regCmdtext === null || regCmdtext.length === 0) {
     SendClientMessage(
@@ -12,7 +12,7 @@ OnPlayerCommandText((p: Player, cmdtext: string) => {
       ColorEnum.yellow,
       $t("error.commandFormat", null, p.locale)
     );
-    return 1;
+    return;
   }
   /* 
     Use eventBus to observe and subscribe to level 1 instructions, 

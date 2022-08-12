@@ -64,7 +64,7 @@ export const $t = function (
   let text = dotValue(value, key);
   if (text === undefined) return "undefined";
   if (replaceable && replaceable.length) {
-    // %s 占位替换
+    // %s Used to declare as a slot and for future replacement
     const placeholder = /%s/i;
     for (let i = 0; i < replaceable.length; i++) {
       const matches = text.match(placeholder);
