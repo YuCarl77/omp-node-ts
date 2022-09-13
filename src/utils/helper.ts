@@ -64,12 +64,13 @@ export const ShowPlayerDialog = (
 // in short, when you write the flag a, you must add I after it, but this I will actually be ignored.
 
 samp.registerEvent("OnPlayerTextI18n", "iai");
-export const OnPlayerText = (fn: (player: Player, text: string) => void) => {
+export const OnPlayerText = (fn: (player: Player, text: string) => number) => {
   // get the player input text
   // and you can decode with the player's charset;
-  samp.on("OnPlayerTextI18n", (playerid: number, buf: number[]): void => {
+  samp.on("OnPlayerTextI18n", (playerid: number, buf: number[]): number => {
     const p = Player.Players.get(playerid);
-    if (p) fn(p, decodeFromBuf(buf, p.charset));
+    if (p) return fn(p, decodeFromBuf(buf, p.charset));
+    return 1;
   });
 };
 
@@ -82,7 +83,7 @@ export const OnPlayerCommandText = (
     (playerid: number, buf: number[]): number => {
       const p = Player.Players.get(playerid);
       if (p) fn(p, decodeFromBuf(buf, p.charset));
-      return 1;
+      return 8;
     }
   );
 };

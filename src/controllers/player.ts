@@ -32,9 +32,10 @@ OnPlayerDisconnect((player: SampPlayer): void => {
     Player.Players.delete(player.playerid);
 });
 
-OnPlayerText((player: Player, text: string): void => {
+OnPlayerText((player: Player, text: string): number => {
   SendClientMessageToAll(
     ColorEnum.white,
     `${player.name}(${player.id}): ${text}`
   );
+  return 0;
 });
