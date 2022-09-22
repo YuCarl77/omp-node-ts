@@ -1,6 +1,6 @@
 ## Introduction
 
-A very simple [omp server](https://github.com/openmultiplayer/server-beta) boilerplate that uses the [samp-node plugin](https://github.com/AmyrAhmady/samp-node) and the [samp-node-lib](https://github.com/peterszombati/samp-node-lib).
+A very simple [omp server](https://github.com/openmultiplayer/server-beta) template that uses the [samp-node plugin](https://github.com/AmyrAhmady/samp-node) and the [omp-node-lib](https://github.com/yucarl77/omp-node-lib).
 
 ## Usage
 

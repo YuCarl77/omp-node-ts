@@ -1,7 +1,7 @@
 {
   "name": "omp-server",
   "version": "1.0.0",
-  "description": "A very simple omp server boilerplate that uses the samp-node plugin and the samp-node-lib library.",
+  "description": "A very simple omp server template that uses the samp-node plugin and the samp-node-lib library.",
   "scripts": {
     "serve": "omp-server",
     "dev": "npm run clean && npm-run-all -p -r -l dev:watch dev:server",
