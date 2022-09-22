@@ -1,7 +1,6 @@
-enum ColorEnum {
-  blue = "(11,162,255,1)", // rgba
-  yellow = "#ff0", //hex
-  red = "#f00",
-  white = "#fff",
+export enum ColorEnum {
+  PrimaryBlue = "(11,162,255,1)", // rgba
+  Warn = "#ff0", //hex
+  Danger = "#f00",
+  White = "#fff",
 }
-export default ColorEnum;
