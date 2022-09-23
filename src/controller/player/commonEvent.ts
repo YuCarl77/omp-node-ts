@@ -1,4 +1,5 @@
 import { chooseLanguage } from "@/commands";
+import { ColorEnum } from "@/enums/color";
 import {
   BasePlayerEvent,
   BodyPartsEnum,
@@ -20,15 +21,24 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
   protected onConnect(player: MyPlayer): number {
     (async () => {
       await chooseLanguage(player);
-      player.sendClientMessage("#fff", `Server: hello ${player.getName()}`);
       player.sendClientMessage(
-        "#fff",
+        ColorEnum.PrimaryBlue,
+        `Server: hello ${player.getName()}`
+      );
+      player.sendClientMessage(
+        ColorEnum.Warn,
         `Server: your version ${player.getVersion()}`
       );
-      player.sendClientMessage("#fff", `Server: your ip ${player.getIp()}`);
-      player.sendClientMessage("#fff", `Server: your ping ${player.getPing()}`);
       player.sendClientMessage(
-        "#fff",
+        ColorEnum.White,
+        `Server: your ip ${player.getIp()}`
+      );
+      player.sendClientMessage(
+        ColorEnum.White,
+        `Server: your ping ${player.getPing()}`
+      );
+      player.sendClientMessage(
+        ColorEnum.White,
         `Server: your raw ip ${player.getRawIp()}`
       );
     })();
@@ -37,7 +47,7 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
   protected onDisconnect(player: MyPlayer, reason: number): number {
     this.getPlayersArr().forEach((p) => {
       p.sendClientMessage(
-        "#fff",
+        ColorEnum.White,
         `Server: player ${player.getName()} disconnect because reason: ${reason}`
       );
     });
@@ -47,6 +57,10 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     return 1;
   }
   protected onCommandError(player: MyPlayer, err: ICmdErr): number {
+    player.sendClientMessage(
+      ColorEnum.Danger,
+      `Server: error command, code:${err.code}, err: ${err.msg}`
+    );
     return 1;
   }
   protected onEnterExitModShop(
@@ -93,7 +107,7 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     oldkeys: KeysEnum
   ): number {
     player.sendClientMessage(
-      "#fff",
+      ColorEnum.White,
       `${player.getName()} key state change ${Date.now()} ${newkeys} - ${oldkeys}`
     );
     return 1;
@@ -127,10 +141,6 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     return 1;
   }
   protected onUpdate(player: MyPlayer): number {
-    player.sendClientMessage(
-      "#fff",
-      `${player.getName()} update ${Date.now()}`
-    );
     return 1;
   }
   protected onInteriorChange(
@@ -142,14 +152,14 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
   }
   protected onPause(player: MyPlayer): number {
     player.sendClientMessage(
-      "#fff",
+      ColorEnum.White,
       `${player.getName()} pause game ${Date.now()}`
     );
     return 1;
   }
   protected onResume(player: MyPlayer): number {
     player.sendClientMessage(
-      "#fff",
+      ColorEnum.White,
       `${player.getName()} resume game ${Date.now()}`
     );
     return 1;

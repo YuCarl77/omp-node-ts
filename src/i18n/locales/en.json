@@ -1,20 +1,11 @@
 {
   "server": {
-    "running": "Successfully running an omp server powered by node.js",
-    "welcome": "Welcome player %s to connect to the server",
-    "greet": "%s, Your id is %s"
+    "running": "Successfully running an omp server powered by node.js"
   },
   "tips": {
     "cmd": {
       "next": "and then the next parameter that you enter is %s"
     }
-  },
-  "error": {
-    "dialogLimited": "[Dialog]: The maximum number of dialogs is reached",
-    "commandTwice": "It is not supported to listen for the same event more than once",
-    "commandFormat": "Please enter the correct command",
-    "commandUndefined": "The command %s you entered does not exist",
-    "initTwice": "Cannot be initialized more than once"
   },
   "dialog": {
     "help": {

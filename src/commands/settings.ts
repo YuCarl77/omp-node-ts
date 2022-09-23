@@ -3,10 +3,18 @@ import { MyPlayer } from "@/controller/player/commonStruct";
 import { ColorEnum } from "@/enums/color";
 import { CharsetEnum } from "@/enums/language";
 import { $t, locales } from "@/i18n";
-import { CmdBus, DialogStylesEnum, ILocale, logger } from "omp-node-lib";
+import { CmdBus, DialogStylesEnum, ILocale } from "omp-node-lib";
 
 CmdBus.on(["language", "lang"], function () {
   chooseLanguage(this);
+});
+
+CmdBus.on("device", async function () {
+  const android = await this.isAndroid();
+  this.sendClientMessage(
+    ColorEnum.White,
+    `Server: your device is ${android ? "android" : "pc"}`
+  );
 });
 
 const chooseLangDialog = new MyDialog({

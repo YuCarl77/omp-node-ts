@@ -1,20 +1,11 @@
 {
   "server": {
-    "running": "成功运行由 node.js 强力驱动的 omp 服务器",
-    "welcome": "欢迎玩家 %s 进入服务器",
-    "greet": "%s, 你的id是 %s"
+    "running": "成功运行由 node.js 强力驱动的 omp 服务器"
   },
   "tips": {
     "cmd": {
       "next": "你输入的下一个参数是 %s"
     }
-  },
-  "error": {
-    "dialogLimited": "[对话框]: 已达到数量上限",
-    "commandTwice": "不支持多次监听同一事件",
-    "commandFormat": "请输入正确的指令",
-    "commandUndefined": "您输入的指令 %s 不存在",
-    "initTwice": "不能多次初始化"
   },
   "dialog": {
     "help": {

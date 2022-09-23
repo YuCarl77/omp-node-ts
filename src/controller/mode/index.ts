@@ -1,8 +1,9 @@
+import { $t } from "@/i18n";
 import { BaseGameMode, logger } from "omp-node-lib";
 
 class MyGameMode extends BaseGameMode {
   protected onInit(): void {
-    logger.info("gameMode init");
+    logger.info($t("server.running"));
   }
   protected onExit(): void {
     logger.info("gameMode exit");
