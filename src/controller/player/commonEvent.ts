@@ -6,6 +6,7 @@ import {
   ICmdErr,
   InvalidEnum,
   KeysEnum,
+  logger,
   PlayerStateEnum,
   WeaponEnum,
 } from "omp-node-lib";
@@ -151,17 +152,13 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     return 1;
   }
   protected onPause(player: MyPlayer): number {
-    player.sendClientMessage(
-      ColorEnum.White,
-      `${player.getName()} pause game ${Date.now()}`
-    );
+    logger.info(`${player.getName()} pause game ${Date.now()}`);
     return 1;
   }
-  protected onResume(player: MyPlayer): number {
-    player.sendClientMessage(
-      ColorEnum.White,
-      `${player.getName()} resume game ${Date.now()}`
-    );
+  protected onResume(player: MyPlayer, pauseMs: number): number {
+    const msg = `${player.getName()} paused for ${pauseMs} milliseconds`;
+    logger.info(msg);
+    player.sendClientMessage(ColorEnum.White, msg);
     return 1;
   }
   protected onRequestDownload(
