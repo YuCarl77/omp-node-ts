@@ -1,31 +1,61 @@
 ## Introduction
 
-A very simple [omp server](https://github.com/openmultiplayer/server-beta) template that uses the [samp-node plugin](https://github.com/AmyrAhmady/samp-node) and the [omp-node-lib](https://github.com/yucarl77/omp-node-lib).
+A very simple [omp server](https://github.com/openmultiplayer/server-beta) template that based on [samp-node](https://github.com/AmyrAhmady/samp-node) and uses the library [omp-node-lib](https://github.com/yucarl77/omp-node-lib)
 
-## Usage
+## Features
 
-> **The necessary files were removed** to ensure that the latest version is always used and that the repository file size is reduced.
+- 🥳 [open.mp](https://github.com/openmultiplayer) for the next generation
+- 🚀 fully embrace the powerful node.js ecosystem
+- 🎉 i18n support for different charsets depending on the player
+- 💡 better data types and asynchronous support
 
-1. Download the [omp server](https://github.com/openmultiplayer/server-beta/releases), extract the `omp-server[.exe]` and `components` folder to the root directory
-2. Download the [samp-node](https://github.com/AmyrAhmady/samp-node/releases), put `libnode.so/dll` in the root directory and `samp-node.so/dll` in the plugins folder
-3. Download the [streamer plugin](https://github.com/samp-incognito/samp-streamer-plugin/releases), put streamer.so/dll in the plugins folder
-4. Change `rcon.password` in `config.json` to other values
-5. `pnpm install` (install dependencies)
-6. `pnpm dev` (start listening compile & auto-restart server)
+## Preparation
 
-## Advantages
+> **The necessary files were removed** to ensure that the latest version is always used and that the repository file size is reduced
 
-- Open.mp for the next generation.
-- Fully embrace the powerful node.js ecosystem.
-- Better data types and maintainability.
-- Convenient asynchronous operations.
-- Internationalization support for different charsets depending on the player.
-- Reduce a lot of original code and function dependencies.
+1. Download the [omp server](https://github.com/openmultiplayer/server-beta/releases), later extract the `omp-server[.exe]` and `components` folder to the project root directory
+2. Download the [samp-node](https://github.com/AmyrAhmady/samp-node/releases), later put `libnode.so/dll` in the project root directory and `samp-node.so/dll` in the plugins folder
+3. Download the [streamer plugin](https://github.com/samp-incognito/samp-streamer-plugin/releases), later put `streamer.so/dll` in the plugins folder
+
+## Getting started
+
+```sh
+# clone the project
+git clone https://github.com/YuCarl77/omp-node-ts
+
+# enter the project directory
+cd omp-node-ts
+
+# install dependency
+npm install
+
+# change rcon.password in config.json
+vim config.json
+
+"rcon": {
+  "password": "changeme" # change this
+},
+
+# develop (start compilation, listen for changes and restart automatically)
+npm run dev
+```
+
+## Build
+
+```sh
+# build for production environment
+npm run build
+
+# run omp server
+npm run serve
+```
 
 ## Notice
 
-- dist folder is now cleared before execution so that the first run will report an error and **the service will run normally on the second restart**.
-  - since `rollup` and `nodemon` run at the same time, the server will automatically restart after `rollup` is compiled, so running dev will start the server twice.
-- If necessary, you can refer to existing wrappers to implement other plugins.
-- You can try to deploy in a `docker` container.
-- `samp-node` requires compliance with the `cjs` specification and has been converted from `esm` to `cjs` via `rollup`.
+- [Why does it crash first every time you run development?](https://github.com/YuCarl77/omp-node-ts/issues/12)
+- `samp-node` plugin should be executed after other plugins, see `config.json -> pawn.legacy_plugins`
+- `samp-node` requires compliance with the `commonjs` specification and has been converted via `rollup`
+
+## License
+
+[MIT](./LICENSE)
