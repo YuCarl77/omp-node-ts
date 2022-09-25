@@ -10,5 +10,7 @@ CmdBus.on(["race"], function (...args) {
       ColorEnum.White,
       $t("command.next", [next.toString()], this.locale)
     );
+    return 1;
   }
+  return 0;
 });

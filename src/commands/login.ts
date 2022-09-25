@@ -7,6 +7,7 @@ CmdBus.on(["r", "reg", "register"], function (...args) {
     ColorEnum.White,
     $t("command.reg", [args], this.locale)
   );
+  return 1;
 });
 
 CmdBus.on(["l", "login"], function (...args) {
@@ -14,4 +15,5 @@ CmdBus.on(["l", "login"], function (...args) {
     ColorEnum.White,
     $t("command.login", [args], this.locale)
   );
+  return true;
 });

@@ -7,6 +7,7 @@ import { CmdBus, DialogStylesEnum, ILocale } from "omp-node-lib";
 
 CmdBus.on(["language", "lang"], function () {
   chooseLanguage(this);
+  return 1;
 });
 
 CmdBus.on("device", async function () {
@@ -15,6 +16,7 @@ CmdBus.on("device", async function () {
     ColorEnum.White,
     $t("command.device", [isAndroid ? "android" : "pc"], this.locale)
   );
+  return 1;
 });
 
 const chooseLangDialog = new MyDialog({

@@ -12,4 +12,5 @@ CmdBus.on("help", async function () {
   helpDialog.button1 = $t("dialog.help.button1", null, this.locale);
   const res = await helpDialog.show(this);
   logger.info(res);
+  return 1;
 });
