@@ -34,6 +34,6 @@
     "disconnect": "服务器: 玩家 %s 与服务器断开连接，因为: %s",
     "keyStateChange": "%s 按键状态改变 %s %s - %s",
     "pause": "%s 暂停了游戏 %s",
-    "resume": "%s 暂停了 %s 毫秒`;"
+    "resume": "%s 暂停了 %s 毫秒"
   }
 }

@@ -58,10 +58,14 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
   protected onText(player: MyPlayer, text: string): number {
     return 1;
   }
-  protected onCommandError(player: MyPlayer, err: ICmdErr): number {
+  protected onCommandError(
+    player: MyPlayer,
+    command: string,
+    err: ICmdErr
+  ): number {
     player.sendClientMessage(
       ColorEnum.Danger,
-      $t("command.error", [err.code, err.msg], player.locale)
+      $t("command.error", [command, err.code, err.msg], player.locale)
     );
     return 1;
   }

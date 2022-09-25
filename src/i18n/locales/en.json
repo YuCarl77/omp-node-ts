@@ -13,7 +13,7 @@
     "device": "Server: your device is %s",
     "reg": "Server: this is a reg example %s",
     "login": "Server: this is a login example %s",
-    "error": "Server: error command, code: %s, err: %s"
+    "error": "Server: error command %s, code: %s, err: %s"
   },
   "dialog": {
     "help": {
@@ -34,6 +34,6 @@
     "disconnect": "Server: player %s disconnect because reason: %s",
     "keyStateChange": "%s key state change %s %s - %s",
     "pause": "%s pause game %s",
-    "resume": "%s paused for %s milliseconds`;"
+    "resume": "%s paused for %s milliseconds"
   }
 }
