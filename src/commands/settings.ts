@@ -10,10 +10,10 @@ CmdBus.on(["language", "lang"], function () {
 });
 
 CmdBus.on("device", async function () {
-  const android = await this.isAndroid();
+  const isAndroid = await this.isAndroid();
   this.sendClientMessage(
     ColorEnum.White,
-    `Server: your device is ${android ? "android" : "pc"}`
+    $t("command.device", [isAndroid ? "android" : "pc"], this.locale)
   );
 });
 

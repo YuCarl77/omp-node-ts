@@ -6,22 +6,18 @@ class MyGameMode extends BaseGameMode {
     logger.info($t("server.running"));
   }
   protected onExit(): void {
-    logger.info("gameMode exit");
+    logger.info($t("server.exit"));
   }
   protected onIncomingConnection(
     playerid: number,
     ipAddress: string,
     port: number
   ): number {
-    logger.info(`incoming: ${playerid} - ${ipAddress} : ${port}`);
-    return 1;
-  }
-  protected onClientMessage(color: number, text: string): number {
-    logger.info(`client message: ${color} - ${text}`);
+    logger.info($t("server.incoming", [playerid, ipAddress, port]));
     return 1;
   }
   protected onRconCommand(cmd: string): number {
-    logger.info(`rcon: ${cmd}`);
+    logger.info($t("server.rcon.command", [cmd]));
     return 1;
   }
   protected onRconLoginAttempt(
@@ -29,7 +25,7 @@ class MyGameMode extends BaseGameMode {
     password: string,
     success: boolean
   ): number {
-    logger.info(`rcon login attempt: ${ip} ${password} ${success}`);
+    logger.info($t("server.rcon.attempt", [ip, password, success]));
     return 1;
   }
 }
