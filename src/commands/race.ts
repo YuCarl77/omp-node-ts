@@ -1,4 +1,4 @@
-import { playerEvent } from "@/controller/player";
+import { playerEvent } from "@/controller/player/commonEvent";
 import { ColorEnum } from "@/enums/color";
 import { $t } from "@/i18n";
 

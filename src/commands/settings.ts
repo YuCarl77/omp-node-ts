@@ -1,5 +1,5 @@
 import { MyDialog } from "@/controller/dialog/commonStruct";
-import { playerEvent } from "@/controller/player";
+import { playerEvent } from "@/controller/player/commonEvent";
 import { MyPlayer } from "@/controller/player/commonStruct";
 import { ColorEnum } from "@/enums/color";
 import { CharsetEnum } from "@/enums/language";

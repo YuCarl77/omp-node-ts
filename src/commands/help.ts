@@ -1,5 +1,5 @@
 import { MyDialog } from "@/controller/dialog/commonStruct";
-import { playerEvent } from "@/controller/player";
+import { playerEvent } from "@/controller/player/commonEvent";
 import { $t } from "@/i18n";
 import { DialogStylesEnum, logger } from "omp-node-lib";
 

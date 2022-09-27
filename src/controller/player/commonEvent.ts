@@ -1,4 +1,4 @@
-import { chooseLanguage } from "@/commands";
+import { chooseLanguage } from "@/commands/settings";
 import { ColorEnum } from "@/enums/color";
 import { $t } from "@/i18n";
 import {
@@ -186,3 +186,5 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     return 1;
   }
 }
+
+export const playerEvent = new CommonPlayerEvent();
