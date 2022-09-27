@@ -160,9 +160,9 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
   ): number {
     return 1;
   }
-  protected onPause(player: MyPlayer): number {
+  protected onPause(player: MyPlayer, timestamp: number): number {
     logger.info(
-      $t("player.pause", [player.getName(), Date.now()], player.locale)
+      $t("player.pause", [player.getName(), timestamp], player.locale)
     );
     return 1;
   }

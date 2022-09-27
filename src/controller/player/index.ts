@@ -1,3 +1,3 @@
 import { CommonPlayerEvent } from "./commonEvent";
 
-new CommonPlayerEvent();
+export const playerEvent = new CommonPlayerEvent();

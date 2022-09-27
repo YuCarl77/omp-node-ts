@@ -1,16 +1,17 @@
 import { MyDialog } from "@/controller/dialog/commonStruct";
+import { playerEvent } from "@/controller/player";
 import { MyPlayer } from "@/controller/player/commonStruct";
 import { ColorEnum } from "@/enums/color";
 import { CharsetEnum } from "@/enums/language";
 import { $t, locales } from "@/i18n";
-import { CmdBus, DialogStylesEnum, ILocale } from "omp-node-lib";
+import { DialogStylesEnum, ILocale } from "omp-node-lib";
 
-CmdBus.on(["language", "lang"], function () {
+playerEvent.cmdBus.on(["language", "lang"], function () {
   chooseLanguage(this);
   return 1;
 });
 
-CmdBus.on("device", async function () {
+playerEvent.cmdBus.on("device", async function () {
   const isAndroid = await this.isAndroid();
   this.sendClientMessage(
     ColorEnum.White,

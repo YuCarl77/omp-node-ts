@@ -1,8 +1,8 @@
+import { playerEvent } from "@/controller/player";
 import { ColorEnum } from "@/enums/color";
 import { $t } from "@/i18n";
-import { CmdBus } from "omp-node-lib";
 
-CmdBus.on(["race"], function (...args) {
+playerEvent.cmdBus.on(["race"], function (...args) {
   // subcommand command, means like /race s
   const [subcommand, ...next] = args;
   if (subcommand === "s") {

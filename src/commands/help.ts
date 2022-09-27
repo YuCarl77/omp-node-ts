@@ -1,12 +1,13 @@
 import { MyDialog } from "@/controller/dialog/commonStruct";
+import { playerEvent } from "@/controller/player";
 import { $t } from "@/i18n";
-import { CmdBus, DialogStylesEnum, logger } from "omp-node-lib";
+import { DialogStylesEnum, logger } from "omp-node-lib";
 
 const helpDialog = new MyDialog({
   style: DialogStylesEnum.MSGBOX,
 });
 
-CmdBus.on("help", async function () {
+playerEvent.cmdBus.on("help", async function () {
   helpDialog.caption = $t("dialog.help.caption", null, this.locale);
   helpDialog.info = $t("dialog.help.info", null, this.locale);
   helpDialog.button1 = $t("dialog.help.button1", null, this.locale);
