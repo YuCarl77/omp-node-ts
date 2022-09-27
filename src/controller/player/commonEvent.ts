@@ -122,6 +122,9 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     );
     return 1;
   }
+  protected onRequestClass(player: MyPlayer, classid: number): number {
+    return 1;
+  }
   protected onRequestSpawn(player: MyPlayer): number {
     return 1;
   }

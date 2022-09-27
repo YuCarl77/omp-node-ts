@@ -7,11 +7,11 @@ const helpDialog = new MyDialog({
   style: DialogStylesEnum.MSGBOX,
 });
 
-playerEvent.cmdBus.on("help", async function () {
-  helpDialog.caption = $t("dialog.help.caption", null, this.locale);
-  helpDialog.info = $t("dialog.help.info", null, this.locale);
-  helpDialog.button1 = $t("dialog.help.button1", null, this.locale);
-  const res = await helpDialog.show(this);
+playerEvent.onCommandText("help", async (player) => {
+  helpDialog.caption = $t("dialog.help.caption", null, player.locale);
+  helpDialog.info = $t("dialog.help.info", null, player.locale);
+  helpDialog.button1 = $t("dialog.help.button1", null, player.locale);
+  const res = await helpDialog.show(player);
   logger.info(res);
   return 1;
 });

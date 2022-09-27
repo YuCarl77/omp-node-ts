@@ -82,7 +82,7 @@
   "rcon": {
     "allow_teleport": false,
     "enable": false,
-    "password": "test"
+    "password": "changeme"
   },
   "sleep": 5.0,
   "use_dyn_ticks": true,

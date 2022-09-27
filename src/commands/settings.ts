@@ -6,16 +6,16 @@ import { CharsetEnum } from "@/enums/language";
 import { $t, locales } from "@/i18n";
 import { DialogStylesEnum, ILocale } from "omp-node-lib";
 
-playerEvent.cmdBus.on(["language", "lang"], function () {
-  chooseLanguage(this);
+playerEvent.onCommandText(["language", "lang"], (player) => {
+  chooseLanguage(player);
   return 1;
 });
 
-playerEvent.cmdBus.on("device", async function () {
-  const isAndroid = await this.isAndroid();
-  this.sendClientMessage(
+playerEvent.onCommandText("device", async (player) => {
+  const isAndroid = await player.isAndroid();
+  player.sendClientMessage(
     ColorEnum.White,
-    $t("command.device", [isAndroid ? "android" : "pc"], this.locale)
+    $t("command.device", [isAndroid ? "android" : "pc"], player.locale)
   );
   return 1;
 });
