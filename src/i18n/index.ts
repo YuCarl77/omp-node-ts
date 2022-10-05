@@ -14,6 +14,4 @@ export const locales: TLocales = {
   },
 };
 
-const i18n = new I18n(LanguageEnum.English, locales);
-
-export const $t = i18n.$t.bind(i18n);
+export const { $t } = new I18n(LanguageEnum.English, locales);

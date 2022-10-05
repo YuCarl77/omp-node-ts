@@ -14,7 +14,7 @@ specifiers:
   husky: ^8.0.1
   nodemon: ^2.0.20
   npm-run-all: ^4.1.5
-  omp-node-lib: 0.3.1
+  omp-node-lib: 0.3.5
   rimraf: ^3.0.2
   rollup: ^2.79.1
   rollup-plugin-node-externals: ^4.1.1
@@ -23,7 +23,7 @@ specifiers:
   typescript: ^4.8.3
 
 dependencies:
-  omp-node-lib: 0.3.1
+  omp-node-lib: 0.3.5
 
 devDependencies:
   '@rollup/plugin-commonjs': 22.0.2_rollup@2.79.1
@@ -1516,8 +1516,8 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-node-lib/0.3.1:
-    resolution: {integrity: sha512-hvu1tWiu8LBqCjAOTjzJQfb3mdwXFn5E/yhMsLNT74C/uGB7D5b0kWckY9hVx9m6thXyy3r4ZSh6+vDULXQCrg==}
+  /omp-node-lib/0.3.5:
+    resolution: {integrity: sha512-CPKDYUpHwolfSQQ6eUD9O0qo24M1PiMkQlW4wfoxo9RA83Do4pieo7cD6YA0A6Wrra+SZqVLPynVTF8cyUN/rg==}
     dependencies:
       iconv-lite: 0.6.3
       lodash: 4.17.21
