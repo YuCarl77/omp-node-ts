@@ -14,7 +14,9 @@ specifiers:
   husky: ^8.0.1
   nodemon: ^2.0.20
   npm-run-all: ^4.1.5
-  omp-node-lib: 0.3.5
+  omp-node-lib: 0.3.7
+  pino: ^8.6.1
+  pino-pretty: ^9.1.0
   rimraf: ^3.0.2
   rollup: ^2.79.1
   rollup-plugin-node-externals: ^4.1.1
@@ -23,7 +25,9 @@ specifiers:
   typescript: ^4.8.3
 
 dependencies:
-  omp-node-lib: 0.3.5
+  omp-node-lib: 0.3.7
+  pino: 8.6.1
+  pino-pretty: 9.1.0
 
 devDependencies:
   '@rollup/plugin-commonjs': 22.0.2_rollup@2.79.1
@@ -1516,14 +1520,14 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-node-lib/0.3.5:
-    resolution: {integrity: sha512-CPKDYUpHwolfSQQ6eUD9O0qo24M1PiMkQlW4wfoxo9RA83Do4pieo7cD6YA0A6Wrra+SZqVLPynVTF8cyUN/rg==}
+  /omp-node-lib/0.3.7:
+    resolution: {integrity: sha512-a59UZdnFltLGj212Oa8T3W1na1frOV0Njb+dNHdc9TDTz/Zam7rFPfJMdO1xpG0WxfgJoShh6yZjDNtITBEBCA==}
     dependencies:
       iconv-lite: 0.6.3
       lodash: 4.17.21
       omp-wrapper: 0.1.4
       omp-wrapper-streamer: 0.0.9
-      pino: 8.6.0
+      pino: 8.6.1
       pino-pretty: 9.1.0
     dev: false
 
@@ -1668,8 +1672,8 @@ packages:
     resolution: {integrity: sha512-mMMOwSKrmyl+Y12Ri2xhH1lbzQxwwpuru9VjyJpgFIH4asSj88F2csdMwN6+M5g1Ll4rmsYghHLQJw81tgZ7LQ==}
     dev: false
 
-  /pino/8.6.0:
-    resolution: {integrity: sha512-gCEOs6XpgiM8mSFjiLXQejDJ1PZww8AUmHowQ16QpqpXQDIm3mFwn/29+Y6CJxd6i+x3uXduuerjq+IqWoABbA==}
+  /pino/8.6.1:
+    resolution: {integrity: sha512-fi+V2K98eMZjQ/uEHHSiMALNrz7HaFdKNYuyA3ZUrbH0f1e8sPFDmeRGzg7ZH2q4QDxGnJPOswmqlEaTAZeDPA==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0

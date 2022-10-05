@@ -1,7 +1,7 @@
 {
   "name": "omp-server",
   "version": "1.0.0",
-  "description": "A very simple omp server template that uses the samp-node plugin and the samp-node-lib library.",
+  "description": "A very simple omp server template that uses the samp-node plugin and the omp-node-lib library.",
   "scripts": {
     "serve": "omp-server",
     "dev": "npm run clean && npm-run-all -p -r -l dev:watch dev:server",
@@ -31,7 +31,9 @@
     "url": "https://github.com/YuCarl77/omp-node-ts/issues"
   },
   "dependencies": {
-    "omp-node-lib": "0.3.5"
+    "omp-node-lib": "0.3.7",
+    "pino": "^8.6.1",
+    "pino-pretty": "^9.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.2",
