@@ -9,6 +9,7 @@ import {
   KeysEnum,
   logger,
   PlayerStateEnum,
+  TCommonCallback,
   WeaponEnum,
 } from "omp-node-lib";
 import { MyPlayer } from "./commonStruct";
@@ -56,6 +57,18 @@ export class CommonPlayerEvent extends BasePlayerEvent<MyPlayer> {
     return 1;
   }
   protected onText(player: MyPlayer, text: string): number {
+    return 1;
+  }
+  protected onCommandReceived(
+    player: MyPlayer,
+    command: string
+  ): TCommonCallback {
+    return 1;
+  }
+  protected onCommandPerformed(
+    player: MyPlayer,
+    command: string
+  ): TCommonCallback {
     return 1;
   }
   protected onCommandError(

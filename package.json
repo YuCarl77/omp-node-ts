@@ -31,7 +31,7 @@
     "url": "https://github.com/YuCarl77/omp-node-ts/issues"
   },
   "dependencies": {
-    "omp-node-lib": "0.3.7",
+    "omp-node-lib": "0.4.7",
     "pino": "^8.6.1",
     "pino-pretty": "^9.1.0"
   },
@@ -40,6 +40,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@sa-mp/node": "^0.2.0",
     "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.7.23",
     "@typescript-eslint/eslint-plugin": "^5.38.1",

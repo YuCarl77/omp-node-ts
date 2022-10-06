@@ -8,7 +8,7 @@
     "target": "esnext",
     "module": "esnext",
     "outDir": "dist",
-    "types": ["@types/node"],
+    "types": ["@sa-mp/node"],
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,

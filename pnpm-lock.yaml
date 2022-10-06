@@ -5,6 +5,7 @@ specifiers:
   '@rollup/plugin-json': ^4.1.0
   '@rollup/plugin-node-resolve': ^13.3.0
   '@rollup/plugin-typescript': ^8.5.0
+  '@sa-mp/node': ^0.2.0
   '@tsconfig/node16': ^1.0.3
   '@types/node': ^18.7.23
   '@typescript-eslint/eslint-plugin': ^5.38.1
@@ -14,7 +15,7 @@ specifiers:
   husky: ^8.0.1
   nodemon: ^2.0.20
   npm-run-all: ^4.1.5
-  omp-node-lib: 0.3.7
+  omp-node-lib: 0.4.7
   pino: ^8.6.1
   pino-pretty: ^9.1.0
   rimraf: ^3.0.2
@@ -25,7 +26,7 @@ specifiers:
   typescript: ^4.8.3
 
 dependencies:
-  omp-node-lib: 0.3.7
+  omp-node-lib: 0.4.7
   pino: 8.6.1
   pino-pretty: 9.1.0
 
@@ -34,6 +35,7 @@ devDependencies:
   '@rollup/plugin-json': 4.1.0_rollup@2.79.1
   '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
   '@rollup/plugin-typescript': 8.5.0_jm3lfwhp2n3nxb4wwf6zz565he
+  '@sa-mp/node': 0.2.0
   '@tsconfig/node16': 1.0.3
   '@types/node': 18.7.23
   '@typescript-eslint/eslint-plugin': 5.38.1_qatzzi2vqzjqg2tq57nszrvcfi
@@ -240,6 +242,10 @@ packages:
       estree-walker: 1.0.1
       picomatch: 2.3.1
       rollup: 2.79.1
+    dev: true
+
+  /@sa-mp/node/0.2.0:
+    resolution: {integrity: sha512-pNkx5cNJx786Smgrzultj7ei2IHP+ZiZGm9ER3+gnOOVM8s7b6LcKhFbL8JPf9b+VdhSOTDhqhYATmyMj3G5DQ==}
     dev: true
 
   /@tsconfig/node16/1.0.3:
@@ -1520,8 +1526,8 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-node-lib/0.3.7:
-    resolution: {integrity: sha512-a59UZdnFltLGj212Oa8T3W1na1frOV0Njb+dNHdc9TDTz/Zam7rFPfJMdO1xpG0WxfgJoShh6yZjDNtITBEBCA==}
+  /omp-node-lib/0.4.7:
+    resolution: {integrity: sha512-cA6PQzm3sL8dfwCb9uz+VNrD08DALGl03WPv5CSq/iTGubvERQ22NuwmZ7+E7FRjhVP/0fS3pQG7wRtKMAhNCg==}
     dependencies:
       iconv-lite: 0.6.3
       lodash: 4.17.21
