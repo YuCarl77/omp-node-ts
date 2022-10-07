@@ -31,7 +31,7 @@
     "url": "https://github.com/YuCarl77/omp-node-ts/issues"
   },
   "dependencies": {
-    "omp-node-lib": "0.4.7",
+    "omp-node-lib": "0.5.3",
     "pino": "^8.6.1",
     "pino-pretty": "^9.1.0"
   },

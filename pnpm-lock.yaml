@@ -15,7 +15,7 @@ specifiers:
   husky: ^8.0.1
   nodemon: ^2.0.20
   npm-run-all: ^4.1.5
-  omp-node-lib: 0.4.7
+  omp-node-lib: 0.5.3
   pino: ^8.6.1
   pino-pretty: ^9.1.0
   rimraf: ^3.0.2
@@ -26,7 +26,7 @@ specifiers:
   typescript: ^4.8.3
 
 dependencies:
-  omp-node-lib: 0.4.7
+  omp-node-lib: 0.5.3
   pino: 8.6.1
   pino-pretty: 9.1.0
 
@@ -1526,19 +1526,19 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-node-lib/0.4.7:
-    resolution: {integrity: sha512-cA6PQzm3sL8dfwCb9uz+VNrD08DALGl03WPv5CSq/iTGubvERQ22NuwmZ7+E7FRjhVP/0fS3pQG7wRtKMAhNCg==}
+  /omp-node-lib/0.5.3:
+    resolution: {integrity: sha512-seyBTmQvFSKIgx8gPdV9t/irH5BoNPX0X4mu/KJR3rgTGe7zYwbWS8pcmrwOSnFp9lXDksUlLGIBcN6R5kd4ZQ==}
     dependencies:
       iconv-lite: 0.6.3
       lodash: 4.17.21
       omp-wrapper: 0.1.4
-      omp-wrapper-streamer: 0.0.9
+      omp-wrapper-streamer: 0.1.6
       pino: 8.6.1
       pino-pretty: 9.1.0
     dev: false
 
-  /omp-wrapper-streamer/0.0.9:
-    resolution: {integrity: sha512-WKVrT25ScN+iChgFcb+e9olHoKdoF9AKOReh0SNWPjW4RuZK/8X1WDZpLHxZhcj28qbHrjzHbRqJMzCKsgpT+Q==}
+  /omp-wrapper-streamer/0.1.6:
+    resolution: {integrity: sha512-CVeWuE0kFU7ieu+/WOx1htTKXCuE3vuLyBsPY9i/4U1ATNgopXMrFlFUqVj5irjmTOLx93xXpowqk+XENqiwEQ==}
     dev: false
 
   /omp-wrapper/0.1.4:
