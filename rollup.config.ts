@@ -1,21 +1,20 @@
-import typescript from "@rollup/plugin-typescript";
+import esbuild from "rollup-plugin-esbuild";
+import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import externals from "rollup-plugin-node-externals";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import { terser } from "rollup-plugin-terser";
 
 const isDev = process.env.NODE_ENV === "dev";
 
 const plugins = [
   externals(),
   nodeResolve(),
-  typescript({ tsconfig: "./tsconfig.json" }),
+  esbuild({ sourceMap: isDev, minify: !isDev }),
+  typescriptPaths({ preserveExtensions: true }),
   json(),
   commonjs(),
 ];
-
-if (!isDev) plugins.push(terser());
 
 export default {
   input: "./src/main.ts",
